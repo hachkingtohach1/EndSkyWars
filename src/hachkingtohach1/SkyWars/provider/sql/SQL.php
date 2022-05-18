@@ -51,7 +51,7 @@ class SQL implements DataBase{
 			["Password"] ?? "",
 			["Database"] ?? "skywars",
 			["Port"] ?? 3306
-			
+		);			
 		if($this->db->connect_error){
 			$this->plugin->getLogger()->critical("Could not connect to MySQL server: ".$this->db->connect_error);
 			return;
