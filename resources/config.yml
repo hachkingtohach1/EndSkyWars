@@ -1,12 +1,4 @@
 ---
-# MySQL
-SkyWars-SQL:
-  Host: 127.0.0.1
-  User: root
-  Password: 
-  Database: SkyWars
-  Port: 3306
-  
 # Settings
 lastDay: 0
 lastWeek: 0
