@@ -7,7 +7,9 @@
 - It also includes Cosmetics, SoulWell, player stat systems and a lot of things.
 # Video Testing
 
-<p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/uy2DkpRN8Wc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+<p align="center">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/uy2DkpRN8Wc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
 
 # How to use it? 👌
 - Start with the command "/createsw <name>", it will give you the lead to create details.
