@@ -8,6 +8,9 @@
 # Video Testing
 https://youtu.be/uy2DkpRN8Wc
 
+# Video setup
+https://youtu.be/pwJGXODZcIg
+
 # How to use it? 👌
 - Start with the command "/createsw <name>", it will give you the lead to create details.
 - "/swp" to create party.
