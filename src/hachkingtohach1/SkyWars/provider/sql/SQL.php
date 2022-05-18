@@ -45,7 +45,12 @@ class SQL implements DataBase{
 	    $this->plugin = SkyWars::getInstance();
         $this->dbName = $dbName;
         $config = $this->plugin->getConfig()->getNested("SkyWars-SQL");
-        $this->db = new mysqli("CREATE USER \'BlossomCo\'@\'127.0.0.1\' IDENTIFIED VIA mysql_native_password USING \'***\';GRANT ALL PRIVILEGES ON *.* TO \'BlossomCo\'@\'127.0.0.1\' REQUIRE NONE WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;CREATE DATABASE IF NOT EXISTS `BlossomCo`;GRANT ALL PRIVILEGES ON `BlossomCo`.* TO \'BlossomCo\'@\'127.0.0.1\';GRANT ALL PRIVILEGES ON `BlossomCo\\_%`.* TO \'BlossomCo\'@\'127.0.0.1\';");
+        $this->db = new mysqli(
+			["Host"] ?? "127.0.0.1",
+			["User"] ?? "BlossomCo",
+			["Password"] ?? "",
+			["Database"] ?? "skywars",
+			["Port"] ?? 3306
 			
 		if($this->db->connect_error){
 			$this->plugin->getLogger()->critical("Could not connect to MySQL server: ".$this->db->connect_error);
