@@ -5,4 +5,5 @@ branches:
 projects:
   EndSkyWars:
     path: ""
+    lint: false
 ...
