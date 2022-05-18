@@ -10,6 +10,7 @@ https://youtu.be/uy2DkpRN8Wc
 
 # How to use it? 👌
 - Start with the command "/createsw <name>", it will give you the lead to create details.
+- Use "/swp" to create party 
 - while creating when it comes to setting up a shift point for players to the island, you can use Diamond Hoe to create a set point and use diamond axe to set up for special chests.
 - If you're done creating it, then the next thing to do must go to the plugin's 'dataplugins' folder to create a backup of the world you created as a .zip.
 - Remember it needs MySql to run !
