@@ -1,0 +1,127 @@
+---
+#
+# ------Events Id------
+#
+# win,
+# kill,
+#
+# ----------------------
+# Daily Quests
+daily-quests: 
+    100:
+        name: "SkyWars Solo Win"
+        info: 
+            - "§7Win a game in Solo Mode"
+            - "§b(§6#min§b/§6#max§b)"
+            - ""
+            - "Rewards:"
+            - "§8+§3300 §7SkyWars Experience"
+            - "§8+§61,500 §7SkyWars Coins"
+            - "§8+§b1 §7Soul"
+        event: win
+        mode: solo
+        amount: 1
+        rewards-commands: 
+            - "swgive xp %player 300"
+            - "swgive coins %player 1500"
+            - "swgive souls %player 1"
+    101:
+        name: "SkyWars Solo Kills"
+        info: 
+            - "§7Kill 15 players in Solo Mode"
+            - "§b(§6#min§b/§6#max§b)"
+            - ""
+            - "Rewards:"
+            - "§8+§3300 §7SkyWars Experience"
+            - "§8+§61,500 §7SkyWars Coins"
+            - "§8+§b1 §7Soul"
+        event: kill
+        mode: solo
+        amount: 15
+        rewards-commands: 
+            - "swgive xp %player 300"
+            - "swgive coins %player 1500"
+            - "swgive souls %player 1"
+    102:
+        name: "SkyWars Team Win"
+        info: 
+            - "§7Win a game in Team Mode"
+            - "§b(§6#min§b/§6#max§b)"
+            - ""
+            - "Rewards:"
+            - "§8+§3300 §7SkyWars Experience"
+            - "§8+§61,500 §7SkyWars Coins"
+            - "§8+§b1 §7Soul"
+        event: win
+        mode: team
+        amount: 1
+        rewards-commands: 
+            - "swgive xp %player 300"
+            - "swgive coins %player 1500"
+            - "swgive souls %player 1"
+    103:
+        name: "SkyWars Solo Team kills"
+        info: 
+            - "§7Kill 15 players in Team Mode"
+            - "§b(§6#min§b/§6#max§b)"
+            - ""
+            - "Rewards:"
+            - "§8+§3300 §7SkyWars Experience"
+            - "§8+§61,500 §7SkyWars Coins"
+            - "§8+§b1 §7Soul"
+        event: kill
+        mode: team
+        amount: 15
+        rewards-commands: 
+            - "swgive xp %player 300"
+            - "swgive coins %player 1500"
+            - "swgive souls %player 1"
+    104:
+        name: "SkyWars Solo Team kills"
+        info: 
+            - "§7Kill 10 players in Team or Solo"
+            - "§b(§6#min§b/§6#max§b)"
+            - ""
+            - "Rewards:"
+            - "§8+§22,000 §7Tokens"
+        event: kill
+        mode: any
+        amount: 10
+        rewards-commands: 
+            - "swgive tokens %player 2000"
+# Weekly Quests
+weekly-quests: 
+    200:
+        name: "SkyWars Weekly Kills"
+        info: 
+            - "§7Kill a total of 150 players in any"
+            - "§7mode §b(§6#min§b/§6#max§b)"
+            - ""
+            - "Rewards:"
+            - "§8+§315,000 §7SkyWars Experience"
+            - "§8+§65,000 §7SkyWars Coins"
+            - "§8+§b3 §7Soul"
+        event: kill
+        mode: any
+        amount: 150
+        rewards-commands: 
+            - "swgive xp %player 15000"
+            - "swgive coins %player 5000"
+            - "swgive souls %player 3"
+    201:
+        name: "SkyWars Weekly Wins"
+        info: 
+            - "§7Win a total of 150 players in any"
+            - "§7mode §b(§6#min§b/§6#max§b)"
+            - ""
+            - "Rewards:"
+            - "§8+§315,000 §7SkyWars Experience"
+            - "§8+§65,000 §7SkyWars Coins"
+            - "§8+§b3 §7Soul"
+        event: win
+        mode: any
+        amount: 30
+        rewards-commands: 
+            - "swgive xp %player 15000"
+            - "swgive coins %player 5000"
+            - "swgive souls %player 3"

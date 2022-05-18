@@ -1,0 +1,114 @@
+{
+    "name": "EndSkyWars",
+    "author": "hachkingtohach1(DragoVN)",
+    "api": "4.0.0", 
+    "version": "2.2.0_PREMIUM",   
+    "main": "hachkingtohach1\\SkyWars\\SkyWars",
+    "price": "15$",
+    "github": "https://github.com/hachkingtohach1/",
+    "description": "Plugin SkyWars for pocketmine_pmmp",   
+    "permissions":{
+        "sw.command":{
+            "description": "Permission to use the SkyWars command.",
+            "default": true
+        },
+        "swp.command":{
+            "description": "Permission to use the SkyWars command.",
+            "default": true
+        },
+        "swbuild.command":{
+            "description": "Permission to use the SkyWars command.",
+            "default": OP
+        },
+        "swsetup.command":{
+            "description": "Permission to use the SkyWars command.",
+            "default": OP
+        },
+        "swgive.command":{
+            "description": "Permission to use the SkyWars command.",
+            "default": OP
+        },
+        "npc.command":{
+            "description": "Permission to use the SkyWars command.",
+            "default": OP
+        },
+        "lobby.command":{
+            "description": "Permission to use the SkyWars command.",
+            "default": true
+        },
+        "menu.command":{
+            "description": "Permission to use the SkyWars command.",
+            "default": true
+        }         
+    },
+    "commands":{ 
+        "sw":{
+            "description": "To join SkyWars.",
+            "permission": "sw.command"
+        },
+        "swp":{
+            "description": "Party for SkyWars.",
+            "permission": "swp.command"
+        },
+        "swbuild":{
+            "description": "Enable builder mode.",
+            "permission": "swbuild.command"
+        },
+        "createsw":{
+            "description": "Setup one SkyWars.",
+            "permission": "swsetup.command"
+        },
+        "swmode":{
+            "description": "Setup one SkyWars.",
+            "permission": "swsetup.command"
+        },
+        "swname":{
+            "description": "Setup one SkyWars.",
+            "permission": "swsetup.command"
+        },
+        "swlobbywaiting":{
+            "description": "Setup one SkyWars.",
+            "permission": "swsetup.command"
+        },
+        "swspawndragon":{
+            "description": "Setup one SkyWars.",
+            "permission": "swsetup.command"
+        },
+        "swmaxplayerinteam":{
+            "description": "Setup one SkyWars.",
+            "permission": "swsetup.command"
+        },
+        "swmaxteam":{
+            "description": "Setup one SkyWars.",
+            "permission": "swsetup.command"
+        },
+        "swspawn":{
+            "description": "Setup one SkyWars.",
+            "permission": "swsetup.command"
+        },
+        "swchestmid":{
+            "description": "Setup one SkyWars.",
+            "permission": "swsetup.command"
+        },
+        "swsave":{
+            "description": "Setup one SkyWars.",
+            "permission": "swsetup.command"
+        },
+        "swgive":{
+            "description": "Give Coins/Souls/Tokens/Xp.",
+            "permission": "swgive.command"
+        },
+        "npc":{
+            "description": "Create npc to join SkyWars.",
+            "permission": "npc.command"
+        },
+        "lobby":{
+            "description": "Return lobby SkyWars.",
+            "permission": "lobby.command"
+        },
+        "menu":{
+            "description": "Open menu SkyWars.",
+            "permission": "menu.command"
+        }
+    }
+}
