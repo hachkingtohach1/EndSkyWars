@@ -25,3 +25,4 @@ https://youtu.be/pwJGXODZcIg
 - while creating when it comes to setting up a shift point for players to the island, you can use Diamond Hoe to create a set point and use diamond axe to set up for special chests.
 - If you're done creating it, then the next thing to do must go to the plugin's 'dataplugins' folder to create a backup of the world you created as a .zip.
 - Remember it needs MySql to run!
+- You Want one socreboard ? https://github.com/hachkingtohach1/ScoreHubMe/blob/main/src/hachkingtohach1/ScoreBoard/ScoreBoard.php
