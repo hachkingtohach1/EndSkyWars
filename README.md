@@ -2,6 +2,7 @@
 # Image by GamakCZ
 # Note 😁
 - This is just a product I didn't expect because in the process of code some places I was lazy to clean the code :)) and i code it with notepad++ LOL :)))
+- Some of the things I've designed by default like the minimum number to start a match is 3.
 
 # EndSkyWars
 - An attractive SkyWars plugin such as SkyWars Hypixel, covering many genres such as Solo, Double, Ranked, Mega, Laboratory (WIP) , ...
