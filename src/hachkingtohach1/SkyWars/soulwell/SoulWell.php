@@ -43,9 +43,9 @@ class SoulWell{
 	
 	public const PRICE_ONE_ROLL = 10;
 	
-	public const MESSAGE_NOT_ENOUGHT_SOUL = TextFormat::RED."You don't have enought souls to roll!";
-	public const MESSAGE_FOUND_REWARD = TextFormat::GRAY."You found ".TextFormat::GOLD."#reward".TextFormat::GRAY." in the well!";
-	public const MESSAGE_ALREADY_HAVE_REWARD = TextFormat::GRAY."You already have ".TextFormat::GOLD."#reward".TextFormat::GRAY." and converted into".TextFormat::GOLD." #coins";
+	public const MESSAGE_NOT_ENOUGHT_SOUL = TextFormat::RED."§l§6» §r§cYou don't have enought souls to roll! Play more SkyWars games then try again!";
+	public const MESSAGE_FOUND_REWARD = TextFormat::GRAY."§l§6» §r§7You found ".TextFormat::GOLD."#reward".TextFormat::GRAY." in the well!";
+	public const MESSAGE_ALREADY_HAVE_REWARD = TextFormat::GRAY."§l§6» §r§7You already have ".TextFormat::GOLD."#reward".TextFormat::GRAY." and converted into".TextFormat::GOLD." #coins";
 	
 	/**
      * @param Player $player
