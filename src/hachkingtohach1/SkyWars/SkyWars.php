@@ -109,7 +109,7 @@ class SkyWars extends PluginBase{
 	const MODE_MEGA = "mega";
 	const MODE_LABORATORY = "laboratory";
 
-	public const PREFIX = TextFormat::DARK_PURPLE."[EndSkyWars] ";
+	public const PREFIX = TextFormat::DARK_PURPLE."";
 
     /**
 	 * @return void
