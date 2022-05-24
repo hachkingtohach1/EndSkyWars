@@ -255,22 +255,22 @@ class SkyWars extends PluginBase{
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args) :bool{
 		if($command->getName() == "swp"){
 			if(!$sender instanceof Player){
-				$sender->sendMessage(self::PREFIX.TextFormat::RED."This is command for in-game!");
+				$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThis is command for in-game!");
 				return false;
 			}
 			if(!isset($args[0])){
-				$sender->sendMessage(self::PREFIX.TextFormat::GREEN."/swp <invite,kick,accept,dispand,chat>");
+				$sender->sendMessage(self::PREFIX.TextFormat::GREEN."§l§6» §r§a/swp <invite,kick,accept,dispand,chat>");
 				return false;
 			}
 			switch($args[0]){
 				case "invite":
 				    if(!isset($args[1])){
-				        $sender->sendMessage(self::PREFIX.TextFormat::GREEN."/swp invite <player>");
+				        $sender->sendMessage(self::PREFIX.TextFormat::GREEN."§l§6» §r§a/swp invite <player>");
 				        break;
 					}
 					$target = $this->getServer()->getPlayerByPrefix($args[1]);
 				    if(!$target instanceof Player){
-						$sender->sendMessage(self::PREFIX.TextFormat::RED."Player don't exist!");
+						$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cPlayer doesn't exist!");
 						break;
 					}
 					if(!isset($this->party[$sender->getXuid()])){
@@ -283,124 +283,124 @@ class SkyWars extends PluginBase{
 						$this->invite[$target->getXuid()] = [];
 					}
 					if(isset($this->invite[$target->getXuid()][$sender->getName()])){
-						$sender->sendMessage(self::PREFIX.TextFormat::RED."You already invited this player");
+						$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cYou already have invited this player");
 						break;
 					}
 					$this->invite[$target->getXuid()][$sender->getName()] = ["player" => $sender];
-					$sender->sendMessage(self::PREFIX.TextFormat::AQUA."You have successfully invited!");
-					$target->sendMessage(self::PREFIX.TextFormat::YELLOW.$sender->getName().TextFormat::AQUA." sent you an invitation to their party. Usage: /swp accept ".$sender->getName());
+					$sender->sendMessage(self::PREFIX.TextFormat::AQUA."§l§6» §r§aYou have successfully invited this player!");
+					$target->sendMessage(self::PREFIX.TextFormat::GREEN."§l§6» §r§c".TextFormat::YELLOW.$sender->getName().TextFormat::AQUA." sent you an invitation to their party. Usage: /swp accept ".$sender->getName());
 				    break;
 				case "kick":
 				    if(isset($this->party[$sender->getXuid()])){
 						if(!isset($args[1])){
-				            $sender->sendMessage(self::PREFIX.TextFormat::GOLD."/swp kick <player>");
+				            $sender->sendMessage(self::PREFIX.TextFormat::GOLD."§l§6» §r§6/swp kick <player>");
 				            break;
 						}
 						$target = $this->getServer()->getPlayerByPrefix($args[1]);
 				        if(!$target instanceof Player){
-						    $sender->sendMessage(self::PREFIX.TextFormat::RED."Player don't exist!");
+						    $sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cPlayer doesn't exist!");
 						    break;
 						}
 						if(!isset($this->party[$sender->getXuid()]["members"][$target->getXuid()])){
-							$sender->sendMessage(self::PREFIX.TextFormat::RED."Player is not a member of your party!");
+							$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cPlayer is not a member of your party!");
 						    break;
 						}
                         unset($this->party[$sender->getXuid()]["members"][$target->getXuid()]);						
 						foreach($this->party[$sender->getXuid()]["members"] as $member){
-							$sender->sendMessage(self::PREFIX.TextFormat::RED.$target->getName()." was kicked out of the party!");
+							$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§c".TextFormat::RED.$target->getName()." was kicked out of the party!");
 						}
-						$target->sendMessage(self::PREFIX.TextFormat::YELLOW.$sender->getName().TextFormat::AQUA." kicked you out of the party!");
+						$target->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§c".TextFormat::YELLOW.$sender->getName().TextFormat::AQUA." kicked you out of the party!");
 					}else{
-						$sender->sendMessage(self::PREFIX.TextFormat::RED."You don't have party!");
+						$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cYou are not currently in a party!");
 					}
 				    break;
 				case "accept":
 				    if(!isset($args[1])){
-				        $sender->sendMessage(self::PREFIX.TextFormat::GOLD."/swp accept <player>");
+				        $sender->sendMessage(self::PREFIX.TextFormat::GOLD."§l§6» §r§g/swp accept <player>");
 				        break;
 					}
 					if(!isset($this->invite[$sender->getXuid()][$args[1]])){
-						$sender->sendMessage(self::PREFIX.TextFormat::RED."This invitation does not exist!");
+						$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThis invitation does not exist!");
 						break;
 					}
 					$target = $this->getServer()->getPlayerByPrefix($args[1]);
 					if(!$target instanceof Player){
-						$sender->sendMessage(self::PREFIX.TextFormat::RED."Player don't exist!");
+						$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cPlayer doesn't exist!");
 						break;
 					}
 					if(!isset($this->party[$target->getXuid()])){
-						$sender->sendMessage(self::PREFIX.TextFormat::RED."This invitation does not exist!");
+						$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThis invitation does not exist!");
 						break;
 					}
 					if($this->inParty($sender)){
-				        $sender->sendMessage(self::PREFIX.TextFormat::RED."You are in party!");
+				        $sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cYou are in a party!");
 				        break;
 					}
 					$owner = $this->party[$target->getXuid()]["owner"];
-					$owner->sendMessage(self::PREFIX.TextFormat::GREEN.$sender->getName()." has join the party!");
+					$owner->sendMessage(self::PREFIX.TextFormat::GREEN."§l§6» §r§c".TextFormat::GREEN.$sender->getName()." has joined the party!");
 					foreach($this->party[$target->getXuid()]["members"] as $member){
-						$sender->sendMessage(self::PREFIX.TextFormat::GREEN.$sender->getName()." has join the party!");
+						$sender->sendMessage(self::PREFIX.TextFormat::GREEN."§l§6» §r§c".TextFormat::GREEN.$sender->getName()." has joined the party!");
 					}
 					$this->party[$target->getXuid()]["members"][$sender->getXuid()] = ["player" => $sender];
-					$sender->sendMessage(self::PREFIX.TextFormat::GREEN."You has joined the party!");
+					$sender->sendMessage(self::PREFIX.TextFormat::GREEN."§l§6» §r§aYou have joined the party!");
 					break;
 				case "dispand":
 				    if(!isset($args[1])){
-				        $sender->sendMessage(self::PREFIX.TextFormat::GOLD."/swp dispand");
+				        $sender->sendMessage(self::PREFIX.TextFormat::GOLD."§l§6» §r§g/swp dispand");
 				        break;
 					}
 					if(!isset($this->party[$sender->getXuid()])){
-						$sender->sendMessage(self::PREFIX.TextFormat::RED."You don't have party!");
+						$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cYou aren't in a party!");
 						break;
 					}
 					foreach($this->party[$sender->getXuid()]["members"] as $member){
-						$sender->sendMessage(self::PREFIX.TextFormat::RED."The party has been disbanded!");
+						$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThe party has been disbanded, you are no longer in a party!");
 					}
 					unset($this->party[$sender->getXuid()]);
 					break;
 				case "chat":
 					if(!isset($this->party[$sender->getXuid()])){
-						$sender->sendMessage(self::PREFIX.TextFormat::RED."You don't have party!");
+						$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cYou aren't in a party!");
 						break;
 					}
 				    if(!isset($this->partyChat[$sender->getXuid()])){
 						$this->partyChat[$sender->getXuid()] = $sender;
-						$sender->sendMessage(self::PREFIX.TextFormat::GREEN."You have joined party chat!");
+						$sender->sendMessage(self::PREFIX.TextFormat::GREEN."§l§6» §r§aYou have joined party chat!");
 						break;
 					}	
                     unset($this->partyChat[$sender->getXuid()]);
-					$sender->sendMessage(self::PREFIX.TextFormat::RED."You have left party chat!");					
+					$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cYou have left party chat!");					
 				    break;
 			}
 			return true;
 		}
 		if($command->getName() == "swbuild"){
 			if(!$sender instanceof Player){
-				$sender->sendMessage(self::PREFIX.TextFormat::RED."This is command for in-game!");
+				$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThis command is for in-game only!");
 				return false;
 			}
 			if(!$this->getServer()->isOp($sender->getName())){
-				$sender->sendMessage(self::PREFIX.TextFormat::RED."This is command for admin!");
+				$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThis command is for staff only!");
 				return false;
 			}
 			if(!$this->getConfig()->get("builder-mode")){
 				$this->getConfig()->set("builder-mode", true);
 				$this->getConfig()->save();
-				$sender->sendMessage(self::PREFIX.TextFormat::YELLOW."Builder mode: ".TextFormat::GREEN." ENABLE");
+				$sender->sendMessage(self::PREFIX.TextFormat::YELLOW."Builder mode: ".TextFormat::GREEN." ENABLED");
 			}else{
 				$this->getConfig()->set("builder-mode", false);
 				$this->getConfig()->save();
-				$sender->sendMessage(self::PREFIX.TextFormat::YELLOW."Builder mode: ".TextFormat::RED." DISABLE");
+				$sender->sendMessage(self::PREFIX.TextFormat::YELLOW."Builder mode: ".TextFormat::RED." DISABLED");
 			}
 			return true;
 		}
 		if($command->getName() == "createsw"){
 			if(!$sender instanceof Player){
-				$sender->sendMessage(self::PREFIX.TextFormat::RED."This is command for in-game!");
+				$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThis command is for in-game only!");
 				return false;
 			}
 			if(!$this->getServer()->isOp($sender->getName())){
-				$sender->sendMessage(self::PREFIX.TextFormat::RED."This is command for admin!");
+				$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThis command is for staff only!");
 				return false;
 			}
 			if(!isset($args[0])){
@@ -433,11 +433,11 @@ class SkyWars extends PluginBase{
 		}
 		if($command->getName() == "swmode"){
 			if(!$sender instanceof Player){
-				$sender->sendMessage(self::PREFIX.TextFormat::RED."This is command for in-game!");
+				$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThis command is for in-game only!");
 				return false;
 			}
 			if(!$this->getServer()->isOp($sender->getName())){
-				$sender->sendMessage(self::PREFIX.TextFormat::RED."This is command for admin!");
+				$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThis command is for staff only!");
 				return false;
 			}
 			$mode = [self::MODE_NORMAL, self::MODE_INSANE, self::MODE_RANKED, self::MODE_MEGA, self::MODE_LABORATORY];
@@ -461,11 +461,11 @@ class SkyWars extends PluginBase{
 		}
 		if($command->getName() == "swname"){
 			if(!$sender instanceof Player){
-				$sender->sendMessage(self::PREFIX.TextFormat::RED."This is command for in-game!");
+				$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThis command is for in-game only!");
 				return false;
 			}
 			if(!$this->getServer()->isOp($sender->getName())){
-				$sender->sendMessage(self::PREFIX.TextFormat::RED."This is command for admin!");
+				$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThis command is for staff only!");
 				return false;
 			}
 			if(!isset($args[0])){
@@ -484,11 +484,11 @@ class SkyWars extends PluginBase{
 		}
 		if($command->getName() == "swlobbywaiting"){
 			if(!$sender instanceof Player){
-				$sender->sendMessage(self::PREFIX.TextFormat::RED."This is command for in-game!");
+				$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThis command is for in-game only!");
 				return false;
 			}
 			if(!$this->getServer()->isOp($sender->getName())){
-				$sender->sendMessage(self::PREFIX.TextFormat::RED."This is command for admin!");
+				$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThis command is for staff only!");
 				return false;
 			}
 			if(isset($this->setup[$sender->getXuid()])){
@@ -504,11 +504,11 @@ class SkyWars extends PluginBase{
 		}
 		if($command->getName() == "swspawndragon"){
 			if(!$sender instanceof Player){
-				$sender->sendMessage(self::PREFIX.TextFormat::RED."This is command for in-game!");
+				$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThis command is for in-game only!");
 				return false;
 			}
 			if(!$this->getServer()->isOp($sender->getName())){
-				$sender->sendMessage(self::PREFIX.TextFormat::RED."This is command for admin!");
+				$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThis command is for staff only!");
 				return false;
 			}
 			if(isset($this->setup[$sender->getXuid()])){
@@ -523,11 +523,11 @@ class SkyWars extends PluginBase{
 		}
 		if($command->getName() == "swmaxplayerinteam"){
 			if(!$sender instanceof Player){
-				$sender->sendMessage(self::PREFIX.TextFormat::RED."This is command for in-game!");
+				$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThis command is for in-game only!");
 				return false;
 			}
 			if(!$this->getServer()->isOp($sender->getName())){
-				$sender->sendMessage(self::PREFIX.TextFormat::RED."This is command for admin!");
+				$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThis command is for admins only!");
 				return false;
 			}
 			if(isset($this->setup[$sender->getXuid()])){
@@ -546,11 +546,11 @@ class SkyWars extends PluginBase{
 		}
 		if($command->getName() == "swmaxteam"){
 			if(!$sender instanceof Player){
-				$sender->sendMessage(self::PREFIX.TextFormat::RED."This is command for in-game!");
+				$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThis command is for in-game only!");
 				return false;
 			}
 			if(!$this->getServer()->isOp($sender->getName())){
-				$sender->sendMessage(self::PREFIX.TextFormat::RED."This is command for admin!");
+				$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThis command is for staff only!");
 				return false;
 			}
 			if(isset($this->setup[$sender->getXuid()])){
@@ -571,11 +571,11 @@ class SkyWars extends PluginBase{
 		}
 		if($command->getName() == "swspawn"){
 			if(!$sender instanceof Player){
-				$sender->sendMessage(self::PREFIX.TextFormat::RED."This is command for in-game!");
+				$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThis command is for in-game only!");
 				return false;
 			}
 			if(!$this->getServer()->isOp($sender->getName())){
-				$sender->sendMessage(self::PREFIX.TextFormat::RED."This is command for admin!");
+				$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThis command is for staff only!");
 				return false;
 			}
 			if(!isset($args[0])){
@@ -594,11 +594,11 @@ class SkyWars extends PluginBase{
 		}
 		if($command->getName() == "swchestmid"){
 			if(!$sender instanceof Player){
-				$sender->sendMessage(self::PREFIX.TextFormat::RED."This is command for in-game!");
+				$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThis command is for in-game only!");
 				return false;
 			}
 			if(!$this->getServer()->isOp($sender->getName())){
-				$sender->sendMessage(self::PREFIX.TextFormat::RED."This is command for admin!");
+				$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThis command is for staff only!");
 				return false;
 			}
 			if(isset($this->setup[$sender->getXuid()])){
@@ -613,11 +613,11 @@ class SkyWars extends PluginBase{
 		}
 		if($command->getName() == "swsave"){
 			if(!$sender instanceof Player){
-				$sender->sendMessage(self::PREFIX.TextFormat::RED."This is command for in-game!");
+				$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThis command is for in-game only!");
 				return false;
 			}
 			if(!$this->getServer()->isOp($sender->getName())){
-				$sender->sendMessage(self::PREFIX.TextFormat::RED."This is command for admin!");
+				$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThis command is for staff only!");
 				return false;
 			}
 			if(isset($this->setup[$sender->getXuid()])){
@@ -634,11 +634,11 @@ class SkyWars extends PluginBase{
 		}
 		if($command->getName() == "swgive"){
 			if(!$sender instanceof Player){
-				$sender->sendMessage(self::PREFIX.TextFormat::RED."This is command for in-game!");
+				$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThis command is for in-game only!");
 				return false;
 			}
 			if(!$this->getServer()->isOp($sender->getName())){
-				$sender->sendMessage(self::PREFIX.TextFormat::RED."This is command for admin!");
+				$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThis command is for staff only!");
 				return false;
 			}
 			if(!isset($args[0]) or !isset($args[1]) or !isset($args[2])){
@@ -668,7 +668,7 @@ class SkyWars extends PluginBase{
 		}
 		if($command->getName() == "lobby"){
 			if(!$sender instanceof Player){
-				$sender->sendMessage(self::PREFIX.TextFormat::RED."This is command for in-game!");
+				$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThis command is for in-game only!");
 				return false;
 			}
 			$sender->setGamemode($this->getServer()->getGamemode());	
@@ -685,11 +685,11 @@ class SkyWars extends PluginBase{
 		}
 		if($command->getName() == "npc"){
 			if(!$sender instanceof Player){
-				$sender->sendMessage(self::PREFIX.TextFormat::RED."This is command for in-game!");
+				$sender->sendMessage(self::PREFIX.TextFormat::RED."This command is for in-game only!");
 				return false;
 			}
 			if(!$this->getServer()->isOp($sender->getName())){
-				$sender->sendMessage(self::PREFIX.TextFormat::RED."This is command for admin!");
+				$sender->sendMessage(self::PREFIX.TextFormat::RED."This command is for staff only!");
 				return false;
 			}
 			if(!isset($args[0])){
@@ -788,7 +788,7 @@ class SkyWars extends PluginBase{
 		}
 		if($command->getName() == "sw"){
 			if(!$sender instanceof Player){
-				$sender->sendMessage(self::PREFIX.TextFormat::RED."This is command for in-game!");
+				$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThis command is for in-game only!");
 				return false;
 			}
 			if(!isset($args[0]) or !isset($args[1])){
@@ -821,7 +821,7 @@ class SkyWars extends PluginBase{
 			if($args[1] == self::MODE_RANKED){
 				$require = $this->getConfig()->get("level-required-for-rating");
 			    if(Ranking::getLevel($sender) < $require){
-				    $sender->sendMessage(self::PREFIX.TextFormat::RED."You need to reach level ".$require." to join ranked mode!");
+				    $sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cYou need to reach level§e ".$require." §cto join ranked mode! Keep grinding!");
 					return false;
 				}
 			}
@@ -839,7 +839,7 @@ class SkyWars extends PluginBase{
 				    if($args[1] == self::MODE_MEGA){
 				        $this->findTeamArenas($sender, 5, $mode);
 					}else{
-						$sender->sendMessage(self::PREFIX.TextFormat::RED." This is mode for mega!");
+						$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThis mode is for mega only!");
 					}
 				    break;
 			}			
@@ -847,12 +847,12 @@ class SkyWars extends PluginBase{
 		}
 		if($command->getName() == "menu"){
 			if(!$sender instanceof Player){
-				$sender->sendMessage(self::PREFIX.TextFormat::RED."This is command for in-game!");
+				$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThis command is for in-game only!");
 				return false;
 			}
 			$dataPlayer = $this->getPlayer($sender);
 			if($dataPlayer->isInGame()){
-				$sender->sendMessage(self::PREFIX.TextFormat::RED."You are in-game!");
+				$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cYou are in-game!");
 				return false;
 			}
 			Form::getMenu($sender);
@@ -1049,7 +1049,7 @@ class SkyWars extends PluginBase{
 	public function findRandomArenas(Player $player) :bool{
 		if($this->inParty($player)){
 			if(!$this->isOwnerParty($player)){
-			    $player->sendMessage(self::PREFIX.TextFormat::RED."You are not the party owner!");
+			    $player->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cYou are not the party owner!");
 				return false;
 			}			
 		}
@@ -1094,7 +1094,7 @@ class SkyWars extends PluginBase{
 	public function findSoloArenas(Player $player, string $mode) :bool{
 		if($this->inParty($player)){
 			if(!$this->isOwnerParty($player)){
-			    $player->sendMessage(self::PREFIX.TextFormat::RED."You are not the party owner!");
+			    $player->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cYou are not the party owner!");
 				return false;
 			}			
 		}
@@ -1146,7 +1146,7 @@ class SkyWars extends PluginBase{
 	public function findTeamArenas(Player $player, int $maxInTeamCount, string $mode) :bool{
 		if($this->inParty($player)){
 			if(!$this->isOwnerParty($player)){
-			    $player->sendMessage(self::PREFIX.TextFormat::RED."You are not the party owner!");
+			    $player->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cYou are not the party owner!");
 				return false;
 			}			
 		}
