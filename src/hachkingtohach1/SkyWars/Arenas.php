@@ -1422,7 +1422,7 @@ class Arenas{
 			ScoreBoardAPI::setScoreLine($player, 3, TextFormat::WHITE."");
 			ScoreBoardAPI::setScoreLine($player, 4, $status);
 			ScoreBoardAPI::setScoreLine($player, 5, TextFormat::RED."");
-			ScoreBoardAPI::setScoreLine($player, 6, TextFormat::WHITE."Server: ".TextFormat::GREEN."§dBlossom");
+			ScoreBoardAPI::setScoreLine($player, 6, TextFormat::WHITE."Server: ".TextFormat::GREEN."§5Blossom");
 			ScoreBoardAPI::setScoreLine($player, 7, TextFormat::BOLD."");
 			ScoreBoardAPI::setScoreLine($player, 8, $this->getMessageLocalized("IP_SERVER", [], []));
 		}
