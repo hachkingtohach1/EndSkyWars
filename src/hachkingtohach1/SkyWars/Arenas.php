@@ -1416,13 +1416,13 @@ class Arenas{
 	private function sendScoreBoardWaiting(){
 		$status = $this->getStatus();
 		foreach($this->players as $player){
-			ScoreBoardAPI::setScore($player, TextFormat::BOLD.TextFormat::YELLOW."SKYWARS");
+			ScoreBoardAPI::setScore($player, TextFormat::BOLD.TextFormat::YELLOW."§l§4Sky§cWars");
 		    ScoreBoardAPI::setScoreLine($player, 1, TextFormat::YELLOW."");
 			ScoreBoardAPI::setScoreLine($player, 2, TextFormat::WHITE."Players: ".TextFormat::GREEN. count($this->players)."/".(count($this->teams) * $this->maxInTeamCount));
 			ScoreBoardAPI::setScoreLine($player, 3, TextFormat::WHITE."");
 			ScoreBoardAPI::setScoreLine($player, 4, $status);
 			ScoreBoardAPI::setScoreLine($player, 5, TextFormat::RED."");
-			ScoreBoardAPI::setScoreLine($player, 6, TextFormat::WHITE."Server: ".TextFormat::GREEN."M101");
+			ScoreBoardAPI::setScoreLine($player, 6, TextFormat::WHITE."Server: ".TextFormat::GREEN."§dBlossom");
 			ScoreBoardAPI::setScoreLine($player, 7, TextFormat::BOLD."");
 			ScoreBoardAPI::setScoreLine($player, 8, $this->getMessageLocalized("IP_SERVER", [], []));
 		}
@@ -1438,40 +1438,41 @@ class Arenas{
 				unset($this->players[$player->getXuid()]);
 				return;
 			}
-			ScoreBoardAPI::setScore($player, TextFormat::BOLD.TextFormat::YELLOW."SKYWARS");
-		    ScoreBoardAPI::setScoreLine($player, 1, TextFormat::GRAY. date("d/m/Y").TextFormat::BLACK." M101");
-			ScoreBoardAPI::setScoreLine($player, 2, TextFormat::GRAY."");
-			ScoreBoardAPI::setScoreLine($player, 3, TextFormat::WHITE."Next Event");
-			ScoreBoardAPI::setScoreLine($player, 4, $status);
-			ScoreBoardAPI::setScoreLine($player, 5, TextFormat::BLUE."");
+			ScoreBoardAPI::setScore($player, TextFormat::BOLD.TextFormat::YELLOW."§l§4");
+	            ScoreBoardAPI::setScoreLine($spectator, 1, TextFormat::GRAY."       ");
+		    ScoreBoardAPI::setScoreLine($player, 2, TextFormat::GRAY. date("§r§dd-m-Y").TextFormat::BLACK."");
+			ScoreBoardAPI::setScoreLine($player, 3, TextFormat::GRAY."");
+			ScoreBoardAPI::setScoreLine($player, 4, TextFormat::WHITE."Next Event");
+			ScoreBoardAPI::setScoreLine($player, 5, $status);
+			ScoreBoardAPI::setScoreLine($player, 6, TextFormat::BLUE."");
 			if(!$this->isTeamMode()){
-				ScoreBoardAPI::setScoreLine($player, 6, TextFormat::WHITE."Players left: ".TextFormat::GREEN. count($this->players));
-			    ScoreBoardAPI::setScoreLine($player, 7, TextFormat::WHITE."");
-			    ScoreBoardAPI::setScoreLine($player, 8, TextFormat::WHITE."Kills: ".TextFormat::GREEN.$this->kills[$player->getXuid()]["kills"]);
-			    ScoreBoardAPI::setScoreLine($player, 9, TextFormat::GREEN."");
-		        ScoreBoardAPI::setScoreLine($player, 10, TextFormat::WHITE."Map: ".TextFormat::GREEN.$this->getNameMap());
-				if($this->getMode() == self::MODE_LABORATORY){
-					ScoreBoardAPI::setScoreLine($player, 11, TextFormat::LIGHT_PURPLE."Lab: ".$this->specialMode[1].$this->specialMode[0]);
-				}else{			
-					ScoreBoardAPI::setScoreLine($player, 11, TextFormat::WHITE."Mode: ".$this->colorMode($this->getMode()). ucfirst($this->getMode()));
-				}
-				ScoreBoardAPI::setScoreLine($player, 12, TextFormat::RED."");
-			    ScoreBoardAPI::setScoreLine($player, 13, $this->getMessageLocalized("IP_SERVER", [], []));
-			}else{
-				ScoreBoardAPI::setScoreLine($player, 6, TextFormat::WHITE."Players left: ".TextFormat::GREEN. count($this->players));
-				ScoreBoardAPI::setScoreLine($player, 7, TextFormat::WHITE."Teams left: ".TextFormat::GREEN. count($this->teams[$this->getDataPlayer($player)->getTeam()]));
+				ScoreBoardAPI::setScoreLine($player, 7, TextFormat::WHITE."Players Remaining: ".TextFormat::GREEN. count($this->players));
 			    ScoreBoardAPI::setScoreLine($player, 8, TextFormat::WHITE."");
 			    ScoreBoardAPI::setScoreLine($player, 9, TextFormat::WHITE."Kills: ".TextFormat::GREEN.$this->kills[$player->getXuid()]["kills"]);
-				ScoreBoardAPI::setScoreLine($player, 10, TextFormat::WHITE."Assists: ".TextFormat::GREEN.$this->assists[$player->getXuid()]["assists"]);
-				ScoreBoardAPI::setScoreLine($player, 11, TextFormat::GREEN."");
-		        ScoreBoardAPI::setScoreLine($player, 12, TextFormat::WHITE."Map: ".TextFormat::GREEN.$this->getNameMap());
+			    ScoreBoardAPI::setScoreLine($player, 10, TextFormat::GREEN."");
+		        ScoreBoardAPI::setScoreLine($player, 11, TextFormat::WHITE."Map: ".TextFormat::GREEN.$this->getNameMap());
 				if($this->getMode() == self::MODE_LABORATORY){
-					ScoreBoardAPI::setScoreLine($player, 13, TextFormat::LIGHT_PURPLE."Lab: ".$this->specialMode[1].$this->specialMode[0]);
+					ScoreBoardAPI::setScoreLine($player, 12, TextFormat::LIGHT_PURPLE."Lab: ".$this->specialMode[1].$this->specialMode[0]);
 				}else{			
-					ScoreBoardAPI::setScoreLine($player, 13, TextFormat::WHITE."Mode: ".$this->colorMode($this->getMode()). ucfirst($this->getMode()));
+					ScoreBoardAPI::setScoreLine($player, 12, TextFormat::WHITE."Mode: ".$this->colorMode($this->getMode()). ucfirst($this->getMode()));
 				}
-				ScoreBoardAPI::setScoreLine($player, 14, TextFormat::RED."");
-			    ScoreBoardAPI::setScoreLine($player, 15, $this->getMessageLocalized("IP_SERVER", [], []));
+				ScoreBoardAPI::setScoreLine($player, 13, TextFormat::RED."");
+			    ScoreBoardAPI::setScoreLine($player, 14, $this->getMessageLocalized("IP_SERVER", [], []));
+			}else{
+				ScoreBoardAPI::setScoreLine($player, 7, TextFormat::WHITE."Players left: ".TextFormat::GREEN. count($this->players));
+				ScoreBoardAPI::setScoreLine($player, 8, TextFormat::WHITE."Teams left: ".TextFormat::GREEN. count($this->teams[$this->getDataPlayer($player)->getTeam()]));
+			    ScoreBoardAPI::setScoreLine($player, 9, TextFormat::WHITE."");
+			    ScoreBoardAPI::setScoreLine($player, 10, TextFormat::WHITE."Kills: ".TextFormat::GREEN.$this->kills[$player->getXuid()]["kills"]);
+				ScoreBoardAPI::setScoreLine($player, 11, TextFormat::WHITE."Assists: ".TextFormat::GREEN.$this->assists[$player->getXuid()]["assists"]);
+				ScoreBoardAPI::setScoreLine($player, 12, TextFormat::GREEN."");
+		        ScoreBoardAPI::setScoreLine($player, 13, TextFormat::WHITE."Map: ".TextFormat::GREEN.$this->getNameMap());
+				if($this->getMode() == self::MODE_LABORATORY){
+					ScoreBoardAPI::setScoreLine($player, 14, TextFormat::LIGHT_PURPLE."Lab: ".$this->specialMode[1].$this->specialMode[0]);
+				}else{			
+					ScoreBoardAPI::setScoreLine($player, 14, TextFormat::WHITE."Mode: ".$this->colorMode($this->getMode()). ucfirst($this->getMode()));
+				}
+				ScoreBoardAPI::setScoreLine($player, 15, TextFormat::RED."");
+			    ScoreBoardAPI::setScoreLine($player, 16, $this->getMessageLocalized("IP_SERVER", [], []));
 			}
 		}
 		foreach($this->spectators as $spectator){
@@ -1479,40 +1480,41 @@ class Arenas{
 				unset($this->spectators[$spectator->getXuid()]);
 				return;
 			}
-			ScoreBoardAPI::setScore($spectator, TextFormat::BOLD.TextFormat::YELLOW."SKYWARS");
-		    ScoreBoardAPI::setScoreLine($spectator, 1, TextFormat::GRAY. date("d/m/Y").TextFormat::BLACK." M101");
-			ScoreBoardAPI::setScoreLine($spectator, 2, TextFormat::GRAY."");
-			ScoreBoardAPI::setScoreLine($spectator, 3, TextFormat::WHITE."Next Event");
-			ScoreBoardAPI::setScoreLine($spectator, 4, $status);
-			ScoreBoardAPI::setScoreLine($spectator, 5, TextFormat::BLUE."");
+			ScoreBoardAPI::setScore($spectator, TextFormat::BOLD.TextFormat::YELLOW."§l§rSky§cWars");
+	            ScoreBoardAPI::setScoreLine($spectator, 1, TextFormat::GRAY."       ");
+		    ScoreBoardAPI::setScoreLine($spectator, 2, TextFormat::GRAY. date("§r§dd-m-Y").TextFormat::BLACK." ");
+			ScoreBoardAPI::setScoreLine($spectator, 3, TextFormat::GRAY."");
+			ScoreBoardAPI::setScoreLine($spectator, 4, TextFormat::WHITE."Next Event");
+			ScoreBoardAPI::setScoreLine($spectator, 5, $status);
+			ScoreBoardAPI::setScoreLine($spectator, 6, TextFormat::BLUE."");
 			if(!$this->isTeamMode()){
-				ScoreBoardAPI::setScoreLine($spectator, 6, TextFormat::WHITE."Players left: ".TextFormat::GREEN. count($this->players));
-			    ScoreBoardAPI::setScoreLine($spectator, 7, TextFormat::WHITE."");
-			    ScoreBoardAPI::setScoreLine($spectator, 8, TextFormat::WHITE."Kills: ".TextFormat::GREEN.$this->kills[$spectator->getXuid()]["kills"]);
-			    ScoreBoardAPI::setScoreLine($spectator, 9, TextFormat::GREEN."");
-		        ScoreBoardAPI::setScoreLine($spectator, 10, TextFormat::WHITE."Map: ".TextFormat::GREEN.$this->getNameMap());
-				if($this->getMode() == self::MODE_LABORATORY){
-					ScoreBoardAPI::setScoreLine($player, 11, TextFormat::LIGHT_PURPLE."Lab: ".$this->specialMode[1].$this->specialMode[0]);
-				}else{			
-					ScoreBoardAPI::setScoreLine($player, 11, TextFormat::WHITE."Mode: ".$this->colorMode($this->getMode()). ucfirst($this->getMode()));
-				}
-			    ScoreBoardAPI::setScoreLine($spectator, 12, TextFormat::RED."");
-			    ScoreBoardAPI::setScoreLine($spectator, 13, $this->getMessageLocalized("IP_SERVER", [], []));
-			}else{
-				ScoreBoardAPI::setScoreLine($spectator, 6, TextFormat::WHITE."Players left: ".TextFormat::GREEN. count($this->players));
-				ScoreBoardAPI::setScoreLine($spectator, 7, TextFormat::WHITE."Teams left: ".TextFormat::GREEN. count($this->teams[$this->getDataPlayer($spectator)->getTeam()]));
+				ScoreBoardAPI::setScoreLine($spectator, 7, TextFormat::WHITE."Players left: ".TextFormat::GREEN. count($this->players));
 			    ScoreBoardAPI::setScoreLine($spectator, 8, TextFormat::WHITE."");
 			    ScoreBoardAPI::setScoreLine($spectator, 9, TextFormat::WHITE."Kills: ".TextFormat::GREEN.$this->kills[$spectator->getXuid()]["kills"]);
-				ScoreBoardAPI::setScoreLine($spectator, 10, TextFormat::WHITE."Assists: ".TextFormat::GREEN.$this->assists[$spectator->getXuid()]["assists"]);
-				ScoreBoardAPI::setScoreLine($spectator, 11, TextFormat::GREEN."");
-		        ScoreBoardAPI::setScoreLine($spectator, 12, TextFormat::WHITE."Map: ".TextFormat::GREEN.$this->getNameMap());
+			    ScoreBoardAPI::setScoreLine($spectator, 10, TextFormat::GREEN."");
+		        ScoreBoardAPI::setScoreLine($spectator, 11, TextFormat::WHITE."Map: ".TextFormat::GREEN.$this->getNameMap());
 				if($this->getMode() == self::MODE_LABORATORY){
-					ScoreBoardAPI::setScoreLine($player, 13, TextFormat::LIGHT_PURPLE."Lab: ".$this->specialMode[1].$this->specialMode[0]);
+					ScoreBoardAPI::setScoreLine($player, 12, TextFormat::LIGHT_PURPLE."Lab: ".$this->specialMode[1].$this->specialMode[0]);
 				}else{			
-					ScoreBoardAPI::setScoreLine($player, 13, TextFormat::WHITE."Mode: ".$this->colorMode($this->getMode()). ucfirst($this->getMode()));
+					ScoreBoardAPI::setScoreLine($player, 12, TextFormat::WHITE."Mode: ".$this->colorMode($this->getMode()). ucfirst($this->getMode()));
 				}
-			    ScoreBoardAPI::setScoreLine($spectator, 14, TextFormat::RED."");
-			    ScoreBoardAPI::setScoreLine($spectator, 15, $this->getMessageLocalized("IP_SERVER", [], []));
+			    ScoreBoardAPI::setScoreLine($spectator, 13, TextFormat::RED."");
+			    ScoreBoardAPI::setScoreLine($spectator, 14, $this->getMessageLocalized("IP_SERVER", [], []));
+			}else{
+				ScoreBoardAPI::setScoreLine($spectator, 7, TextFormat::WHITE."Players left: ".TextFormat::GREEN. count($this->players));
+				ScoreBoardAPI::setScoreLine($spectator, 8, TextFormat::WHITE."Teams left: ".TextFormat::GREEN. count($this->teams[$this->getDataPlayer($spectator)->getTeam()]));
+			    ScoreBoardAPI::setScoreLine($spectator, 9, TextFormat::WHITE."");
+			    ScoreBoardAPI::setScoreLine($spectator, 10, TextFormat::WHITE."Kills: ".TextFormat::GREEN.$this->kills[$spectator->getXuid()]["kills"]);
+				ScoreBoardAPI::setScoreLine($spectator, 11, TextFormat::WHITE."Assists: ".TextFormat::GREEN.$this->assists[$spectator->getXuid()]["assists"]);
+				ScoreBoardAPI::setScoreLine($spectator, 12, TextFormat::GREEN."");
+		        ScoreBoardAPI::setScoreLine($spectator, 13, TextFormat::WHITE."Map: ".TextFormat::GREEN.$this->getNameMap());
+				if($this->getMode() == self::MODE_LABORATORY){
+					ScoreBoardAPI::setScoreLine($player, 14, TextFormat::LIGHT_PURPLE."Lab: ".$this->specialMode[1].$this->specialMode[0]);
+				}else{			
+					ScoreBoardAPI::setScoreLine($player, 14, TextFormat::WHITE."Mode: ".$this->colorMode($this->getMode()). ucfirst($this->getMode()));
+				}
+			    ScoreBoardAPI::setScoreLine($spectator, 15, TextFormat::RED."");
+			    ScoreBoardAPI::setScoreLine($spectator, 16, $this->getMessageLocalized("IP_SERVER", [], []));
 			}
 		}
 	}
