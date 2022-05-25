@@ -1469,7 +1469,7 @@ class Arenas{
 					ScoreBoardAPI::setScoreLine($player, 13, TextFormat::LIGHT_PURPLE."Lab: ".$this->specialMode[1].$this->specialMode[0]);
 				}else{			
 					ScoreBoardAPI::setScoreLine($player, 13, TextFormat::WHITE."Mode: ".$this->colorMode($this->getMode()). ucfirst($this->getMode()));
-				ScoreBoardAPI::setScoreLine($player, 14, TextFormat::RED."");
+	                    ScoreBoardAPI::setScoreLine($player, 14, TextFormat::RED."");
 			    ScoreBoardAPI::setScoreLine($player, 15, $this->getMessageLocalized("IP_SERVER", [], []));
 			}
 		}
