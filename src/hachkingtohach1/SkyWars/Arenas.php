@@ -1439,7 +1439,7 @@ class Arenas{
 				return;
 			}
 			ScoreBoardAPI::setScore($player, TextFormat::BOLD.TextFormat::YELLOW."§l§4");
-	            ScoreBoardAPI::setScoreLine($spectator, 1, TextFormat::GRAY."       ");
+	            ScoreBoardAPI::setScoreLine($player, 1, TextFormat::GRAY."       ");
 		    ScoreBoardAPI::setScoreLine($player, 2, TextFormat::GRAY. date("§r§dd-m-Y").TextFormat::BLACK."");
 			ScoreBoardAPI::setScoreLine($player, 3, TextFormat::GRAY."");
 			ScoreBoardAPI::setScoreLine($player, 4, TextFormat::WHITE."Next Event");
