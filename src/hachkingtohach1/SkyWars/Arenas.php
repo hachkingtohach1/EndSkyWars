@@ -1478,7 +1478,7 @@ class Arenas{
 				unset($this->spectators[$spectator->getXuid()]);
 				return;
 			}
-			ScoreBoardAPI::setScore($spectator, TextFormat::BOLD.TextFormat::YELLOW."§l§rSky§cWars");
+			ScoreBoardAPI::setScore($spectator, TextFormat::BOLD.TextFormat::YELLOW."§l§4Sky§cWars");
 			ScoreBoardAPI::setScoreLine($spectator, 1, TextFormat::GRAY."");
 			ScoreBoardAPI::setScoreLine($spectator, 2, TextFormat::WHITE."Next Event");
 			ScoreBoardAPI::setScoreLine($spectator, 3, $status);
