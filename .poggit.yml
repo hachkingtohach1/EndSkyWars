@@ -1,9 +1,0 @@
---- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/hachkingtohach1/EndSkyWars
-build-by-default: true
-branches:
-- master
-projects:
-  EndSkyWars:
-    path: ""
-    lint: false
-...
