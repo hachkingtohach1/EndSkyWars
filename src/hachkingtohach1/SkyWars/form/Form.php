@@ -29,7 +29,7 @@ use hachkingtohach1\SkyWars\SkyWars;
 use Vecnavium\FormsUI\Form;
 use Vecnavium\FormsUI\SimpleForm;
 
-class Form implements Form{
+class Form implements IForm{
 
   /**
     * @param Player $player
