@@ -27,9 +27,8 @@ namespace hachkingtohach1\SkyWars\form;
 use pocketmine\player\Player;
 use hachkingtohach1\SkyWars\SkyWars;
 use Vecnavium\FormsUI\Form;
-use Vecnavium\FormsUI\SimpleForm;
 
-class Form implements IForm{
+class Form{
 
   /**
     * @param Player $player
