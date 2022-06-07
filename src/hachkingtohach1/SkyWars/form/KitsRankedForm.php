@@ -29,6 +29,7 @@ use pocketmine\player\Player;
 use pocketmine\utils\TextFormat;
 use hachkingtohach1\SkyWars\SkyWars;
 use hachkingtohach1\SkyWars\kit\KitManager;
+use Vecnavium\FormsUI\SimpleForm;
 
 class KitsRankedForm{
 
@@ -37,14 +38,13 @@ class KitsRankedForm{
      * @return mixed
      */
     public static function getForm(Player $player){
-		$api = Server::getInstance()->getPluginManager()->getPlugin("FormAPI");
 	    $i = 0;
 		$kits = [];
 		foreach((new KitManager())->getKitsRanked() as $name => $kit){
 			$kits[$i] = $name;
 			$i++;
 		}
-		$form = $api->createSimpleForm(function (Player $player, int $data = null) use ($kits){
+		$form = new SimpleForm(function(Player $player, int $data = null) use ($kits){
 		    $result = $data;
 		    if($result === null){
 			    return true;
