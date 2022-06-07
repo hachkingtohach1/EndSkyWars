@@ -1,12 +1,5 @@
----
-# MySQL
-SkyWars-SQL:
-  Host: 127.0.0.1
-  User: root
-  Password: 
-  Database: SkyWars
-  Port: 3306
-  
+--- 
+
 # Settings
 lastDay: 0
 lastWeek: 0
@@ -14,3 +7,5 @@ lastMonth: 0
 level-required-for-rating: 5
 builder-mode: false
 name-server: "SkyWars > Join now!"
+
+---
