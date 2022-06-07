@@ -37,8 +37,7 @@ class DoubleModeForm{
      */
     public static function getForm(Player $player){
 		$dataPlayer = SkyWars::getInstance()->getPlayer($player);
-		$api = Server::getInstance()->getPluginManager()->getPlugin("FormAPI");
-	    $form = new SimpleForm(function(Player $player, int $data = null) use($dataPlayer){
+	        $form = new SimpleForm(function(Player $player, int $data = null) use($dataPlayer){
 		    $result = $data;
 		    if($result === null){
 			    return true;
