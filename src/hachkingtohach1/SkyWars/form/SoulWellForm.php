@@ -28,6 +28,8 @@ use pocketmine\Server;
 use pocketmine\player\Player;
 use pocketmine\utils\TextFormat;
 use hachkingtohach1\SkyWars\soulwell\SoulWell;
+use Vecnavium\FormsUI\SimpleForm;
+
 
 class SoulWellForm{
 
@@ -36,8 +38,7 @@ class SoulWellForm{
      * @return mixed
      */
     public static function getForm(Player $player){
-		$api = Server::getInstance()->getPluginManager()->getPlugin("FormAPI");
-		$form = $api->createSimpleForm(function (Player $player, int $data = null){
+		$form = new SimpleForm(function(Player $player, int $data = null){
 		    $result = $data;
 		    if($result === null){
 			    return true;
