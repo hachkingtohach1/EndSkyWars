@@ -28,6 +28,7 @@ use pocketmine\Server;
 use pocketmine\player\Player;
 use hachkingtohach1\SkyWars\SkyWars;
 use hachkingtohach1\SkyWars\quest\Quest;
+use Vecnavium\FormsUI\SimpleForm;
 
 class DailyQuestForm{
 
@@ -42,7 +43,7 @@ class DailyQuestForm{
 		foreach($quests as $case => $data){
 			$convertCase[] = $case;
 		}
-		$form = $api->createSimpleForm(function (Player $player, int $data = null) use($convertCase){
+		$form = new SimpleForm(function(Player $player, int $data = null) use($convertCase){
 		    $result = $data;
 		    if($result === null){
 			    return true;
