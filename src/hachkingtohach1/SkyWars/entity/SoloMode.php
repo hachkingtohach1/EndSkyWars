@@ -38,14 +38,14 @@ class SoloMode extends Entity{
      * @return string
      */
     public static function getNetworkTypeId() :string{
-	    return EntityIds::SKELETON; 
-	}
+        return EntityIds::VILLAGER; 
+    }
 
     /**
      * @return EntitySizeInfo
      */
     protected function getInitialSizeInfo() :EntitySizeInfo{
-	    return new EntitySizeInfo(2.0, 2.0); 
+        return new EntitySizeInfo(2.0, 2.0); 
 	}
 
     /**

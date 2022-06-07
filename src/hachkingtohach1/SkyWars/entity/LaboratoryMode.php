@@ -38,7 +38,7 @@ class LaboratoryMode extends Entity{
      * @return string
      */
     public static function getNetworkTypeId() :string{
-	    return EntityIds::CREEPER; 
+	    return EntityIds::VILLAGER; 
 	}
 
     /**

@@ -38,7 +38,7 @@ class MegaMode extends Entity{
      * @return string
      */
     public static function getNetworkTypeId() :string{
-	    return EntityIds::WITHER_SKELETON; 
+	    return EntityIds::VILLAGER; 
 	}
 
     /**
