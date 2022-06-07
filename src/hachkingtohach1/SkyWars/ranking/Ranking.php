@@ -33,79 +33,7 @@ class Ranking{
 	
 	const BASIC_XP = 15;
 	
-	/**
-     * @param Player $player
-     * @return float
-     */
-	public static function getLevel(Player $player) :float{
-		return SkyWars::getInstance()->getDataBase()->getLevel($player);
-	}
 	
-	/**
-     * @param Player $player
-	 * @param int $amount
-     * @return float
-     */
-	public static function setLevel(Player $player, int $amount) :float{
-		return SkyWars::getInstance()->getDataBase()->setLevel($player, $amount);
-	}
-	
-	/**
-     * @param Player $player
-     * @return float
-     */
-	public static function getXp(Player $player) :float{
-		return SkyWars::getInstance()->getDataBase()->getXp($player);
-	}
-	
-	/**
-     * @param Player $player
-	 * @param int $amount
-     * @return float
-     */
-	public static function setXp(Player $player, int $amount) :float{
-		return SkyWars::getInstance()->getDataBase()->setXp($player, $amount);
-	}
-	
-	/**
-     * @param Player $player
-	 * @param int $amount
-     * @return float
-     */
-	public static function addXp(Player $player, int $amount) :float{
-		return SkyWars::getInstance()->getDataBase()->setXp($player, (self::getXp($player) + $amount));
-	}
-	
-	/**
-     * @param Player $player
-     * @return float
-     */
-	public static function getRating(Player $player) :float{
-		return SkyWars::getInstance()->getDataBase()->getRating($player);
-	}
-	
-	/**
-     * @param Player $player
-	 * @param int $amount
-     * @return float
-     */
-	public static function setRating(Player $player, int $amount) :float{
-		return SkyWars::getInstance()->getDataBase()->setRating($player, $amount);
-	}
-	
-	/**
-     * @param Player $player
-	 * @param int $amount
-     * @return float
-     */
-	public static function addRating(Player $player, int $amount) :float{
-		return SkyWars::getInstance()->getDataBase()->setRating($player, (self::getRating($player) + $amount));
-	}
-	
-	/**
-     * @param Player $player
-     * @return int
-     */
 	public static function getNextXp(Player $player) :int{
 		$nextXp = (int)(self::BASIC_XP * (self::getLevel($player) + 1));
 		return $nextXp;
