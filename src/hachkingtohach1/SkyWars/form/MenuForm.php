@@ -27,6 +27,8 @@ namespace hachkingtohach1\SkyWars\form;
 use pocketmine\Server;
 use pocketmine\player\Player;
 use hachkingtohach1\SkyWars\SkyWars;
+use Vecnavium\FormsUI\SimpleForm;
+
 
 class MenuForm{
 
@@ -35,8 +37,7 @@ class MenuForm{
      * @return mixed
      */
     public static function getForm(Player $player){
-		$api = Server::getInstance()->getPluginManager()->getPlugin("FormAPI");
-	    $form = $api->createSimpleForm(function (Player $player, int $data = null){
+		$form = new SimpleForm(function(Player $player, int $data = null){
 		    $result = $data;
 		    if($result === null){
 			    return true;
