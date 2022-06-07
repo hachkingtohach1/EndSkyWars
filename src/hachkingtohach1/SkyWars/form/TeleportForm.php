@@ -28,6 +28,7 @@ use pocketmine\Server;
 use pocketmine\player\Player;
 use pocketmine\utils\TextFormat;
 use hachkingtohach1\SkyWars\SkyWars;
+use Vecnavium\FormsUI\SimpleForm;
 
 class TeleportForm{
 
@@ -46,8 +47,7 @@ class TeleportForm{
 					$players[$i] = $dataPlayer;
 					$i++;
 				}
-				$api = Server::getInstance()->getPluginManager()->getPlugin("FormAPI");
-	    		$form = $api->createSimpleForm(function (Player $player, int $data = null) use ($players, $dataArena){
+				$form = new SimpleForm(function(Player $player, int $data = null) use ($players, $dataArena){
 		    		$result = $data;
 		    		if($result === null){
 			    		return true;
