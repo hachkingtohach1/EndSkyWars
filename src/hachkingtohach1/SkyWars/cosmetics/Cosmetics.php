@@ -198,14 +198,6 @@ class Cosmetics{
 	
 	/**
 	 * @param Player $player
-	 * @return array
-	 */
-	public function getCosmeticUsing(Player $player) :array{		
-		return explode(",", SkyWars::getInstance()->getDatabase()->getUsing($player));
-	}
-	
-	/**
-	 * @param Player $player
 	 * @return bool
 	 */
 	public function checkCagePlayer(Player $player, int $id) :bool{
@@ -250,7 +242,6 @@ class Cosmetics{
                 }
             }
             $cosmetics[] = $id;
-            SkyWars::getInstance()->getDatabase()->setUsing($player, implode(",", $cosmetics));
             return true;
         }
         return false;
