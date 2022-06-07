@@ -28,6 +28,7 @@ use pocketmine\Server;
 use pocketmine\player\Player;
 use hachkingtohach1\SkyWars\SkyWars;
 use hachkingtohach1\SkyWars\quest\Quest;
+use Vecnavium\FormsUI\SimpleForm;
 
 class InfoQuestForm{
 
@@ -36,7 +37,6 @@ class InfoQuestForm{
      * @return mixed
      */
     public static function getForm(Player $player, int $case){
-		$api = Server::getInstance()->getPluginManager()->getPlugin("FormAPI");		
 		$pointPlayer = 0;		
 		$dataBase = null;
 		foreach(Quest::getDailyQuests($player) as $i => $data){
@@ -62,7 +62,7 @@ class InfoQuestForm{
 				$pointPlayer = explode(",", $data)[1];
 			}
 		}			
-		$form = $api->createSimpleForm(function (Player $player, int $data = null){
+		$form = new SimpleForm(function(Player $player, int $data = null){
 		    $result = $data;
 		    if($result === null){
 			    return true;
