@@ -27,6 +27,7 @@ namespace hachkingtohach1\SkyWars\form;
 use pocketmine\Server;
 use pocketmine\player\Player;
 use hachkingtohach1\SkyWars\SkyWars;
+use Vecnavium\FormsUI\SimpleForm;
 
 class DoubleModeForm{
 
@@ -37,7 +38,7 @@ class DoubleModeForm{
     public static function getForm(Player $player){
 		$dataPlayer = SkyWars::getInstance()->getPlayer($player);
 		$api = Server::getInstance()->getPluginManager()->getPlugin("FormAPI");
-	    $form = $api->createSimpleForm(function (Player $player, int $data = null) use($dataPlayer){
+	    $form = new SimpleForm(function(Player $player, int $data = null) use($dataPlayer){
 		    $result = $data;
 		    if($result === null){
 			    return true;
