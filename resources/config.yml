@@ -3,8 +3,8 @@
 SkyWars-SQL:
   Host: 127.0.0.1
   User: root
-  Password: 
-  Database: SkyWars
+  Password: ""
+  Database: your_schema
   Port: 3306
   
 # Settings
