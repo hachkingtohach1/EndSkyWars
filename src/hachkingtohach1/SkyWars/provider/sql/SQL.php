@@ -49,7 +49,7 @@ class SQL implements DataBase{
 			$config["Host"] ?? "127.0.0.1",
 			$config["User"] ?? "root",
 			$config["Password"] ?? "",
-			$config["Database"] ?? "SkyWars",
+			$config["Database"] ?? "your_schema",
 			$config["Port"] ?? 3306
 		);
 			
