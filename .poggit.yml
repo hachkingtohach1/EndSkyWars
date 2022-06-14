@@ -8,5 +8,4 @@ projects:
     libs:
       - src: Vecnavium/FormsUI/FormsUI
         version: ^1.1.2
-    lint: false
 ...
