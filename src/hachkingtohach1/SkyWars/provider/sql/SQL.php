@@ -662,15 +662,8 @@ class SQL implements DataBase{
 		}
 	}
 	
-	/**
-	 * @param string $data
-     */
 	public function resetRatingAll(){
-		$res = $this->db->query("SELECT * FROM user_profile");
-		foreach($res->fetch_all() as $val){
-			$rating = Ranking::getDownRanking($val[17]);
-			$this->db->query("UPDATE user_profile SET rating = $rating WHERE xuid='".$val[0]."'");
-		}
+             // soon
 	}
 	
 	/**
