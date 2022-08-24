@@ -36,6 +36,18 @@
             "description": "Permission to use the SkyWars command.",
             "default": true
         },
+        "skywars.kit":{
+            "description": "Permission to use the SkyWars Kit.",
+            "default": true
+        },
+        "skywars.trails":{
+            "description": "Permission to use the SkyWars Kit.",
+            "default": true
+        },
+        "skywars.cage":{
+            "description": "Permission to use the SkyWars Kit.",
+            "default": true
+        },        
         "menu.command":{
             "description": "Permission to use the SkyWars command.",
             "default": true
