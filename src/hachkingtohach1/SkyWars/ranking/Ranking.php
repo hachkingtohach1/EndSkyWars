@@ -183,8 +183,9 @@ class Ranking{
      * @param Player $player
      * @return string
      */
-	public static function getDownRanking(int $rating) :int{
+	public static function getDownRanking(Player $player) :string{
 		$result = 1000;
+		$rating = self::getRating($player);
 		if($rating >= 1100){
 			$result = 1000;
 		}
