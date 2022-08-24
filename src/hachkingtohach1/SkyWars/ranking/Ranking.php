@@ -181,9 +181,9 @@ class Ranking{
 	
 	/**
      * @param Player $player
-     * @return int
+     * @return string
      */
-	public static function getDownRanking(int $rating):int{
+	public static function getDownRanking(int $rating):string{
 		$result = 1000;
 		if($rating >= 1100){
 			$result = 1000;
