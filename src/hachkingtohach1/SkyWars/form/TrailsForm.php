@@ -46,7 +46,7 @@ class TrailsForm{
 			//convert index to id trail
 			$check = [33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49];
 		    if(isset(Cosmetics::TRAILS[$check[$result]])){
-				if(!$player->hasPermission("skywars.trails"){
+				if(!$player->hasPermission("skywars.trails")){
 				    $player->sendMessage(TextFormat::RED."You don't have permission!");
 					return false;
 				}			
@@ -61,7 +61,7 @@ class TrailsForm{
 		    if(SkyWars::getInstance()->getCosmetics()->checkTrailPlayer($player, $case)){
 			    $form->addButton(TextFormat::GREEN.$trail, 0, "");
 			}else{
-				if($player->hasPermission("skywars.trails"){
+				if($player->hasPermission("skywars.trails")){
 				    $form->addButton(TextFormat::GOLD.$trail, 0, "");
 				}else{
 					$form->addButton(TextFormat::RED.$trail, 0, "");
