@@ -179,40 +179,8 @@ class Ranking{
 		return $result;
 	}
 	
-	/**
-     * @param Player $player
-     * @return string
-     */
-	public static function getDownRanking(int $rating):string{
-		$result = 1000;
-		if($rating >= 1100){
-			$result = 1000;
-		}
-		if($rating >= 1500){
-			$result = 1000;
-		}
-		if($rating >= 2500){
-			$result = 1100;
-		}
-		if($rating >= 3000){
-			$result = 1500;
-		}
-		if($rating >= 3500){
-			$result = 2500;
-		}
-		if($rating >= 4000){
-			$result = 3000;
-		}
-		if($rating >= 4500){
-			$result = 3500;
-		}
-		if($rating >= 5000){
-			$result = 4000;
-		}
-		if($rating >= 6500){
-			$result = 4500;
-		}
-		return $result;
+	public function getDownRanking(){
+           // remove
 	}
 
     /**
