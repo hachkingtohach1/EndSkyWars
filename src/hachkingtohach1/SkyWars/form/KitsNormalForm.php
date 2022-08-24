@@ -50,7 +50,7 @@ class KitsNormalForm{
 			    return true;
 			}
 			if(isset($kits[$result])){
-				if(!$player->hasPermission("skywars.kit"){
+				if(!$player->hasPermission("skywars.kit")){
 					$player->sendMessage(TextFormat::RED."You don't have permission!");
 					return false;
 				}
@@ -66,7 +66,7 @@ class KitsNormalForm{
 			if(str_replace(" ", "", SkyWars::getInstance()->getDataBase()->getKitNormal($player)) == str_replace(" ", "", $kit)){
 			    $form->addButton(TextFormat::GREEN.$convert, 0, "");
 			}else{
-				if($player->hasPermission("skywars.kit"){
+				if($player->hasPermission("skywars.kit")){
 				    $form->addButton(TextFormat::GOLD.$convert, 0, "");
 				}else{
 					$form->addButton(TextFormat::RED.$convert, 0, "");
