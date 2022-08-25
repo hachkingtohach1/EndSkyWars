@@ -45,11 +45,11 @@ class CagesForm{
 			}
 		    if(isset(Cosmetics::CAGES[$result])){
 				if(!$player->hasPermission("skywars.cage")){
-				    $player->sendMessage(TextFormat::RED."§l§4»§r§c You have not unlocked this cosmetic yet!");
+				    $player->sendMessage(TextFormat::RED."§l§4»§r§c You have not unlocked this cage yet!");
 					return false;
 				}
 				SkyWars::getInstance()->getCosmetics()->setCage($player, $result);
-				$player->sendMessage(TextFormat::GREEN."§l§2»§r§a Successfully activated cosmetic!");
+				$player->sendMessage(TextFormat::GREEN."§l§2»§r§a Successfully activated cage!");
 			    return true;
 			}
 			return false;
