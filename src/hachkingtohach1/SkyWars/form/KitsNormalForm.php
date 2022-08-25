@@ -51,11 +51,11 @@ class KitsNormalForm{
 			}
 			if(isset($kits[$result])){
 				if(!$player->hasPermission("skywars.kit")){
-					$player->sendMessage(TextFormat::RED."You don't have permission!");
+					$player->sendMessage(TextFormat::RED."§l§4»§r§c You have not unlocked this kit yet!");
 					return false;
 				}
 				(new KitManager())->setKit($player, $kits[$result]);
-				$player->sendMessage(TextFormat::GREEN."You have selected success!");
+				$player->sendMessage(TextFormat::GREEN."§l§2»§r§a Successfully activated kit!");
 				return true;
 			}
 			return false;
