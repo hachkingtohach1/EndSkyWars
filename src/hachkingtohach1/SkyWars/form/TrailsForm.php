@@ -47,11 +47,11 @@ class TrailsForm{
 			$check = [33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49];
 		    if(isset(Cosmetics::TRAILS[$check[$result]])){
 				if(!$player->hasPermission("skywars.trails")){
-				    $player->sendMessage(TextFormat::RED."You don't have permission!");
+				    $player->sendMessage(TextFormat::RED."§l§4»§r§c You have not unlocked this trail yet!");
 					return false;
 				}			
 				SkyWars::getInstance()->getCosmetics()->setTrail($player, $check[$result]);
-			    $player->sendMessage(TextFormat::GREEN."You have selected success!");
+			    $player->sendMessage(TextFormat::GREEN."§l§2»§r§a Successfully activated trail!");
 				return true;
 			}
 			return false;
