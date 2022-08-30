@@ -53,15 +53,19 @@ class MenuModeForm{
 			        break;	
                 case "3";		
                     Form::getMenuMegaMode($player);				
-			        break;						
+			        break;	
+		case "4";		
+                    Form::getMenuLaboratoryMode($player);				
+			        break;
                 default: break;					
 			}
 		});
-		$form->setTitle("§l§aMenu Mode");
+		$form->setTitle("§l§4Sky§cWars §7Modes");
 		$form->addButton("§aSolo Mode", 0, "");
 		$form->addButton("§dDouble Mode", 0, "");
 		$form->addButton("§bRanked Mode", 0, "");
 		$form->addButton("§cMega Mode", 0, "");
+	        $form->addButton("§eLaboratory Mode", 0, "");
 		$form->sendToPlayer($player);
 		return $form;
 	}
