@@ -28,7 +28,7 @@ use pocketmine\Server;
 use pocketmine\player\Player;
 use hachkingtohach1\SkyWars\SkyWars;
 
-class SoloModeForm{
+class LaboratoryModeForm{
 
     /**
      * @param Player $player
