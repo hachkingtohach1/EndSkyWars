@@ -54,7 +54,7 @@ class MenuForm{
                 default: break;					
 			}
 		});
-		$form->setTitle("§l§aMenu");
+		$form->setTitle("§l§4Sky§cWars §bMenu);
 		$form->addButton("§8Games", 0, "");
 		$form->addButton("§8Cosmetics", 0, "");
 		$form->addButton("§8Your Stats", 0, "");
