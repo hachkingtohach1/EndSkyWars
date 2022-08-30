@@ -232,33 +232,6 @@ class Ranking{
 		return $result;
 	}
 	
-	/**
-     * @param Player $player
-     * @return string
-     */
-	public static function getColorLevel(Player $player) :string{
-		$result = "";
-		$level = self::getLevel($player);
-		if($level >= 0){
-			$result = TextFormat::GRAY.$level;
-		}
-		if($level >= 10){
-			$result = TextFormat::GREEN.$level;
-		}
-		if($level >= 20){
-			$result = TextFormat::BLUE.$level;
-		}
-		if($level >= 30){
-			$result = TextFormat::YELLOW.$level;
-		}
-		if($level >= 40){
-			$result = TextFormat::RED.$level;
-		}
-		if($level >= 50){
-			$result = TextFormat::GOLD.$level;
-		}
-		return $result;
-	}
 
     /**
      * @param Player $player
