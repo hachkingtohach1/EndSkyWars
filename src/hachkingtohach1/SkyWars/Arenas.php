@@ -1747,7 +1747,7 @@ class Arenas{
 					Quest::checkQuestPlayer($winner, $this->maxInTeamCount, "win");
 					$this->plugin->victoryDance[$winner->getXuid()] = new FireWork();
 					$this->plugin->getDataBase()->addWins($winner, 1);
-					$this->plugin->getDataBase()->addXp($winner, 10);
+					Ranking::addXp($winner, 10);
 					$winer->sendMessage("You Won so You Earned 10 XP");
 					$winner->sendTitle($this->getMessageLocalized("VICTORY", [], []), $this->getMessageLocalized("VICTORY_SUB", [], []));
 				    $winner->getWorld()->addSound($winner->getLocation()->asVector3(), new XpLevelUpSound(100), [$winner]);
