@@ -50,12 +50,12 @@ class KitsMegaForm{
 			    return true;
 			}
 			if(isset($kits[$result])){
-				if(!$player->hasPermission(KitManager::PERMISSION_KIT.".".str_replace(" ", "", strtolower($kits[$result])))){
-					$player->sendMessage(TextFormat::RED."You don't have permission!");
+				if(!$player->hasPermission("skywars.kit")){
+					$player->sendMessage(TextFormat::RED."§l§4»§r§c You have not unlocked this kit yet!");
 					return false;
 				}
 				(new KitManager())->setKit($player, $kits[$result]);
-				$player->sendMessage(TextFormat::GREEN."You have selected success!");
+				$player->sendMessage(TextFormat::GREEN."§l§2»§r§a Successfully activated kit!");
 				return true;
 			}
 			return false;
@@ -66,7 +66,7 @@ class KitsMegaForm{
 			if(str_replace(" ", "", SkyWars::getInstance()->getDataBase()->getKitMega($player)) == str_replace(" ", "", $kit)){
 			    $form->addButton(TextFormat::GREEN.$convert, 0, "");
 			}else{
-				if($player->hasPermission(KitManager::PERMISSION_KIT.".".str_replace(" ", "", strtolower($kit)))){
+				if($player->hasPermission("skywars.kit")){
 				    $form->addButton(TextFormat::GOLD.$convert, 0, "");
 				}else{
 					$form->addButton(TextFormat::RED.$convert, 0, "");

@@ -202,7 +202,7 @@ class EventListener implements Listener{
 				$randomCoins = rand(100, 150);
 				Economy::addCoins($attacker, $randomCoins);
 				Economy::addSouls($attacker, 1);
-				Ranking::addXp($attacker, 1);
+				Ranking::addXp($attacker, 10);
 				//update quests
 				Quest::checkQuestPlayer($attacker, $dataArenaAttacker->getMaxInTeamCount(), "kill");
 				$attacker->sendTip(TextFormat::GOLD."+".$randomCoins." coins, ".TextFormat::LIGHT_PURPLE."+1 XP, ".TextFormat::AQUA." +1 souls");
