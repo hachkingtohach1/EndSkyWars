@@ -72,7 +72,7 @@ class TeleportForm{
 				return $form;
 			}
 		}else{
-			$player->sendMessage(TextFormat::RED."You must in-game!");
+			$player->sendMessage(TextFormat::RED."§l§4» §r§cYou must be in-game to use this!");
 		}
 	}
 }
