@@ -70,7 +70,7 @@ class LaboratoryModeForm{
 		});
 		$normal = SkyWars::getInstance()->getTotalCountPlayers("laboratory");
 		$insane = SkyWars::getInstance()->getTotalCountPlayers("laboratory");
-		$form->setTitle("§l§5Laboratory");
+		$form->setTitle("§l§eLaboratory");
 		$form->addButton("§aSolo §8".$normal." players", 0, "");
 		$form->addButton("§bDouble §8".$insane." players", 0, "");
 		$form->sendToPlayer($player);
