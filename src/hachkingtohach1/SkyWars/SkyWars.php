@@ -180,7 +180,7 @@ class SkyWars extends PluginBase{
 		$entityfactory->register(RankedMode::class, function(World $world, CompoundTag $nbt) :RankedMode{
 			return new RankedMode(EntityDataHelper::parseLocation($nbt, $world), null, $nbt);
 		}, ['RankedMode']);
-	    $entityfactory->register(MegaMode::class, function(World $world, CompoundTag $nbt) :MegaMode{
+	        $entityfactory->register(MegaMode::class, function(World $world, CompoundTag $nbt) :MegaMode{
 			return new MegaMode(EntityDataHelper::parseLocation($nbt, $world), null, $nbt);
 		}, ['MegaMode']);
 		$entityfactory->register(LaboratoryMode::class, function(World $world, CompoundTag $nbt) :LaboratoryMode{
