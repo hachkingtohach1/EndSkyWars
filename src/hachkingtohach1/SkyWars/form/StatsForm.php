@@ -49,8 +49,7 @@ class StatsForm{
 		$deaths = SkyWars::getInstance()->getDataBase()->getDeaths($player);
 		$wins = SkyWars::getInstance()->getDataBase()->getWins($player);
 		$level = Ranking::getColorLevel($player);
-		$rating = Ranking::getRating($player);
-		$ranking = Ranking::getRanking($player);
+                $xp = Ranking::getXp($player);
 		$txt = 
 		    "§a----- Your Stats -----\n\n".
 			"§f Kills: §a$kills\n".
@@ -58,8 +57,7 @@ class StatsForm{
 			"§f Deaths: §a$deaths\n".
 			"§f Wins: §a$wins\n\n".
 			"§f Level: §a$level\n\n".
-			"§f Rating: §a$rating\n".
-			"§f SkyWars Rank: §a$ranking\n".
+			"§f Xp: §a$xp\n".
 			"§a--------------------\n\n"
 		;
 		$form->setContent($txt);

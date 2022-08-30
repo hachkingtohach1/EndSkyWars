@@ -31,7 +31,7 @@ use hachkingtohach1\SkyWars\economy\Economy;
 
 class Ranking{
 	
-	const BASIC_XP = 15;
+	const BASIC_XP = 25;
 	
 	/**
      * @param Player $player
@@ -39,6 +39,14 @@ class Ranking{
      */
 	public static function getLevel(Player $player) :float{
 		return SkyWars::getInstance()->getDataBase()->getLevel($player);
+	}
+	
+	/**
+     * @param Player $player
+     * @return float
+     */
+	public static function addLevel(Player $player) :float{
+		return SkyWars::getInstance()->getDataBase()->addLevel($player, $amount);
 	}
 	
 	/**
@@ -181,6 +189,75 @@ class Ranking{
 	
 	public function getDownRanking(){
            // remove
+	}
+	
+	/**
+     * @param Player $player
+     * @return string
+     */
+	public static function searchNextXp(Player $player) :string{
+		$result = "";
+		$level = self::getXp($player);
+		$xp = self::getLevel($player);
+		if($level >= 25){
+	            $result = self::addLevel($player, 1);
+		}
+		if($level >= 50){
+		    $result = self::addLevel($player, 1);
+		}
+		if($level >= 75){
+		    $result = self::addLevel($player, 1);
+		}
+		if($level >= 100){
+		    $result = self::addLevel($player, 1);
+		}
+		if($level >= 125){
+		    $result = self::addLevel($player, 1);
+		}		
+		if($level >= 150){
+		    $result = self::addLevel($player, 1);
+		}
+		if($level >= 175){
+		   $result = self::addLevel($player, 1);
+		}
+		if($level >= 200){
+		    $result = self::addLevel($player, 1);
+	        }
+                if($level >= 225){
+                    $result = self::addLevel($player, 1);
+                }
+                if($level >= 250){
+                    $result = self::addLevel($player, 1);
+                }		
+		return $result;
+	}
+	
+	/**
+     * @param Player $player
+     * @return string
+     */
+	public static function getColorLevel(Player $player) :string{
+		$result = "";
+		$level = self::getLevel($player);
+		if($level >= 0){
+			$result = TextFormat::GRAY.$level;
+		}
+		if($level >= 10){
+			$result = TextFormat::GREEN.$level;
+		}
+		if($level >= 20){
+			$result = TextFormat::BLUE.$level;
+		}
+		if($level >= 30){
+			$result = TextFormat::YELLOW.$level;
+		}
+		if($level >= 40){
+			$result = TextFormat::RED.$level;
+		}
+		if($level >= 50){
+			$result = TextFormat::GOLD.$level;
+		}
+		return $result;
 	}
 
     /**
