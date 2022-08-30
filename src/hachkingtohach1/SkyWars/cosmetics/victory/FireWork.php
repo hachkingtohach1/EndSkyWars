@@ -30,7 +30,7 @@ use pocketmine\item\ItemFactory;
 use pocketmine\item\ItemIdentifier;
 use hachkingtohach1\SkyWars\math\Vector3;
 use hachkingtohach1\SkyWars\entity\FireworksRocket;
-use hachkingtohach1\SkyWars\item\FireWorks as ItemFirework;
+use hachkingtohach1\SkyWars\item\Fireworks as ItemFirework;
 
 class FireWork{
 	
