@@ -31,7 +31,7 @@ use hachkingtohach1\SkyWars\economy\Economy;
 
 class Ranking{
 	
-	const BASIC_XP = 50;
+	const BASIC_XP = 25;
 	
 	/**
      * @param Player $player
