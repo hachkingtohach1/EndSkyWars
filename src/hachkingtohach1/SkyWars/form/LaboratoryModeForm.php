@@ -52,7 +52,7 @@ class SoloModeForm{
 					        $dataArena->removePlayer($player, false, true);
 						}
 					}
-                    Server::getInstance()->dispatchCommand($player, "sw solo normal");			
+                    Server::getInstance()->dispatchCommand($player, "sw solo laboratory");			
 			        break;
                 case "1";
 				    if($dataPlayer->getNameArena() != ""){
@@ -63,16 +63,16 @@ class SoloModeForm{
 					        $dataArena->removePlayer($player, false, true);
 						}
 					}		
-                    Server::getInstance()->dispatchCommand($player, "sw solo insane");				
+                    Server::getInstance()->dispatchCommand($player, "sw double laboratory");				
 			        break;					
                 default: break;					
 			}
 		});
-		$normal = SkyWars::getInstance()->getTotalCountPlayers("normal");
-		$insane = SkyWars::getInstance()->getTotalCountPlayers("insane");
-		$form->setTitle("§l§1Solo");
-		$form->addButton("§aNormal §8".$normal." players", 0, "");
-		$form->addButton("§cInsane §8".$insane." players", 0, "");
+		$normal = SkyWars::getInstance()->getTotalCountPlayers("laboratory");
+		$insane = SkyWars::getInstance()->getTotalCountPlayers("laboratory");
+		$form->setTitle("§l§5Laboratory");
+		$form->addButton("§aSolo §8".$normal." players", 0, "");
+		$form->addButton("§bDouble §8".$insane." players", 0, "");
 		$form->sendToPlayer($player);
 		return $form;
 	}
