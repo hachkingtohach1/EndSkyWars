@@ -43,10 +43,10 @@ class ExchangeSouls{
 		if($coins >= $amount){
 			Economy::minusCoins($player, $amount);
 			Economy::addSouls($player, $amount/1000);
-			$player->sendMessage(TextFormat::GREEN."Thanks for your purchase!");
+			$player->sendMessage(TextFormat::GREEN."§l§4» §r§aPurchase Successful!");
 			return true;
 		}		
-		$player->sendMessage(TextFormat::RED."You don't have enought ".TextFormat::GOLD."$formatCoins Coins".TextFormat::RED." to make payment!");
+		$player->sendMessage(TextFormat::RED."§l§4» §r§c You don't have enough ".TextFormat::GOLD."$formatCoins Coins".TextFormat::RED." to make payment!");
 		return false;
 	}
 
