@@ -46,12 +46,12 @@ class SQL implements DataBase{
         $this->dbName = $dbName;
         $config = $this->plugin->getConfig()->getNested("SkyWars-SQL");
         $this->db = new mysqli(
-			$hostname["Host"] ?? "127.0.0.1",
-			$username["User"] ?? "BlossomCo",
-			$password["Password"] ?? "",
-			$database["Database"] ?? "skywars",
-			$port["Port"] ?? 3306
-		);			
+			$config["Host"] ?? "127.0.0.1",
+			$config["User"] ?? "root",
+			$config["Password"] ?? "",
+			$config["Database"] ?? "SkyWars",
+			$config["Port"] ?? 3306
+		);		
 		if($this->db->connect_error){
 			$this->plugin->getLogger()->critical("Could not connect to MySQL server: ".$this->db->connect_error);
 			return;
