@@ -103,7 +103,15 @@ class Form{
 		return MegaModeForm::getForm($player);
 	}
 
-    /**
+  /**
+    * @param Player $player
+    * @return void
+    */
+  public static function getMenuLaboratoryMode(Player $player){
+		return MegaModeForm::getForm($player);
+	}
+
+  /**
      * @param Player $player
      * @return mixed
      */
