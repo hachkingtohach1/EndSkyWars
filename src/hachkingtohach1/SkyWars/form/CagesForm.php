@@ -44,7 +44,7 @@ class CagesForm{
 			    return true;
 			}
 		    if(isset(Cosmetics::CAGES[$result])){
-				if(!$player->hasPermission("skywars.cage")){
+				if(!$player->hasPermission(Cosmetics::PERMISSION_CAGES.".".str_replace(" ", "", strtolower(Cosmetics::CAGES[$result])))){
 				    $player->sendMessage(TextFormat::RED."§l§4»§r§c You have not unlocked this cage yet!");
 					return false;
 				}
@@ -59,7 +59,7 @@ class CagesForm{
 		    if(SkyWars::getInstance()->getCosmetics()->checkCagePlayer($player, $case)){
 			    $form->addButton(TextFormat::GREEN.$cage, 0, "");
 			}else{
-				if($player->hasPermission("skywars.cage")){
+				if($player->hasPermission(Cosmetics::PERMISSION_CAGES.".".str_replace(" ", "", strtolower($cage)))){
 				    $form->addButton(TextFormat::GOLD.$cage, 0, "");
 				}else{
 					$form->addButton(TextFormat::RED.$cage, 0, "");
