@@ -108,7 +108,7 @@ class Form{
     * @return void
     */
   public static function getMenuLaboratoryMode(Player $player){
-		return MegaModeForm::getForm($player);
+		return LaboratoryModeForm::getForm($player);
 	}
 
   /**
