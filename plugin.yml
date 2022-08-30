@@ -44,7 +44,7 @@
             "description": "Permission to use the SkyWars Kit.",
             "default": OP
         },
-        "skywars.cage":{
+        "skywars.cages":{
             "description": "Permission to use the SkyWars Kit.",
             "default": OP
         },        
