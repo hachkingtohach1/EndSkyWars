@@ -30,13 +30,13 @@ use pocketmine\item\ItemFactory;
 use pocketmine\item\ItemIdentifier;
 use hachkingtohach1\SkyWars\math\Vector3;
 use hachkingtohach1\SkyWars\entity\FireworksRocket;
-use hachkingtohach1\SkyWars\item\FireWorks as ItemFireWork;
+use hachkingtohach1\SkyWars\item\FireWorks as ItemFirework;
 
 class FireWork{
 	
 	public function getVictoryDance(Player $player){
-        $fw = new ItemFireWork(new ItemIdentifier(ItemIds::FIREWORKS, 0), "Fireworks");
-        $fw->addExplosion(ItemFireWork::TYPE_SMALL_SPHERE, ItemFireWork::COLOR_GREEN, "", false, false);
+        $fw = new ItemFirework(new ItemIdentifier(ItemIds::FIREWORKS, 0), "Fireworks");
+        $fw->addExplosion(ItemFirework::TYPE_SMALL_SPHERE, ItemFirework::COLOR_GREEN, "", false, false);
         $fw->setFlightDuration(2);
         $entity = new FireworksRocket($player->getLocation(), $fw);
         if($entity instanceof FireworksRocket){
