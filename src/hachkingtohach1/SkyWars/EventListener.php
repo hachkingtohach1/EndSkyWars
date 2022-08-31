@@ -698,7 +698,7 @@ class EventListener implements Listener{
 	public function onPlayerItemUse(PlayerItemUseEvent $event) :void{
 		$player = $event->getPlayer();
 		$item = $event->getItem();
-		if($item->getnamedTag()->getTag("Corruptedpearl", IntTag::class) != null){
+		if($item->getNamedTag()->getTag("Corruptedpearl", IntTag::class) != null){
 			$instance = new EffectInstance(StringToEffectParser::getInstance()->parse("slowness"), 200, 0);
 		    $player->getEffects()->add($instance);
 		}
