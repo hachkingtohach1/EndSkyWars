@@ -203,7 +203,7 @@ class EventListener implements Listener{
 				Economy::addCoins($attacker, $randomCoins);
 				Economy::addSouls($attacker, 1);
 				Ranking::addXp($attacker, 2);
-				SkyWars::getInstance()->getDataBase()->addLevels($subject, 1);
+				SkyWars::getInstance()->getDataBase()->addLevels($attacker, 1);
 				//update quests
 				Quest::checkQuestPlayer($attacker, $dataArenaAttacker->getMaxInTeamCount(), "kill");
 				$attacker->sendTip(TextFormat::GOLD."+".$randomCoins." coins, ".TextFormat::LIGHT_PURPLE."+1 XP, ".TextFormat::AQUA." +1 souls");
@@ -216,7 +216,7 @@ class EventListener implements Listener{
 				Economy::addCoins($attacker, $randomCoins);
 				Economy::addSouls($attacker, 1);
 				Ranking::addXp($attacker, 2);
-				SkyWars::getInstance()->getDataBase()->addLevels($subject, 1);
+				SkyWars::getInstance()->getDataBase()->addLevels($attacker, 1);
 				//update quests
 				Quest::checkQuestPlayer($attacker, $dataArenaAttacker->getMaxInTeamCount(), "kill");
 				$attacker->sendTip(TextFormat::GOLD."+".$randomCoins." coins, ".TextFormat::LIGHT_PURPLE."+1 XP, ".TextFormat::AQUA." +1 souls");
