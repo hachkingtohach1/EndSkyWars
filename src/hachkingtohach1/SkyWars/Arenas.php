@@ -776,19 +776,10 @@ class Arenas{
         //debug
         return TextFormat::RED."Not found status!";
 	}
-
-	/**
-	 * calls in 10 seconds to start, send messages and sounds to players
-	 */
+	
 	private function almostStartNotifyA(){
-		foreach($this->players as $player){
-			$player->getWorld()->addSound($player->getLocation()->asVector3(), new ClickSound(), [$player]);
-		}
-		$tick = (int)microtime(true) - $this->getHumanReadableTime();
-		$timeLeft = (int)(self::MATCH_START_IN_SECONDS - $tick);
-		$this->sendTitle($this->getMessageLocalized("STARTING_TITLE_A", ["#time"], [$timeLeft]), $this->getMessageLocalized("CHOOSE_KIT_TITLE", [], []));		
-		$this->broadcastMessageLocalized("STARTING_IN_A", ["#time"], [$timeLeft]);
-	}
+
+        }
 	
 	/**
 	 * calls in 5 seconds to start, send messages and sounds to players
@@ -902,7 +893,7 @@ class Arenas{
 			$this->spectators[$player->getXuid()] = $player;
 		}	
 		$player->sendTitle($this->getMessageLocalized("YOU_DIED", [], []), $this->getMessageLocalized("SPECTATOR", [], []));
-	        $this->plugin->getDataBase->addDeaths($player, 1);
+	        $this->plugin->getDataBase()->addDeaths($player, 1);
 	}
 	
 	/**
