@@ -305,6 +305,14 @@ class SQL implements DataBase{
 		return $ret;
 	}
 	
+    public function addLevels(Player $player, float $amount): float{
+	$calculate = $this->getLevel($player) + $amount;
+	if($player instanceof Player){
+		$player = strtolower($player->getXuid());
+	}
+	return $this->db->query("UPDATE user_profile SET level = $calculate WHERE xuid='".$this->db->real_escape_string($player)."'");
+    }
+	
 	/**
      * @param Player $player
 	 * @param float $amount
@@ -343,6 +351,14 @@ class SQL implements DataBase{
 		}
 		return $this->db->query("UPDATE user_profile SET xp = $amount WHERE xuid='".$this->db->real_escape_string($player)."'");
 	}
+	
+       public function addXp(Player $player, float $amount): float{
+	   $calculate = $this->getXp($player) + $amount;
+	   if($player instanceof Player){
+		$player = strtolower($player->getXuid());
+	   }
+	   return $this->db->query("UPDATE user_profile SET xp = $calculate WHERE xuid='".$this->db->real_escape_string($player)."'");
+       }
 	
 	/**
      * @param Player $player
