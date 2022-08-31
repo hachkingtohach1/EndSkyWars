@@ -508,8 +508,12 @@ class Arenas{
 	 * @param Player $player
 	 */
 	private function setIndexJoin(Player $player){
-		$player->getInventory()->setItem(0, $this->getItem(261, 0, 1)->setCustomName(self::CHOOSE_KIT_ITEM));
+	    $player->getInventory()->setItem(0, $this->getItem(261, 0, 1)->setCustomName(self::CHOOSE_KIT_ITEM));
 	    $player->getInventory()->setItem(8, $this->getItem(355, 14, 1)->setCustomName(self::LEAVE_GAME_ITEM));
+		
+	    if($this->getMode() == self::MODE_LABORATORY){
+                $player->getInventory()->removeItem(ItemIds::BOW);
+            }
 	}
 	
 	/**
@@ -897,7 +901,8 @@ class Arenas{
         if(!isset($this->spectators[$player->getXuid()])){
 			$this->spectators[$player->getXuid()] = $player;
 		}	
-		$player->sendTitle($this->getMessageLocalized("YOU_DIED", [], []), $this->getMessageLocalized("SPECTATOR", [], []));		
+		$player->sendTitle($this->getMessageLocalized("YOU_DIED", [], []), $this->getMessageLocalized("SPECTATOR", [], []));
+	        $this->plugin->getDataBase->addDeaths($player, 1);
 	}
 	
 	/**
