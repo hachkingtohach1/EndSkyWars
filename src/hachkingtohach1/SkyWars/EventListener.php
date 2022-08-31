@@ -66,7 +66,7 @@ use hachkingtohach1\SkyWars\utils\Lightning;
 use hachkingtohach1\SkyWars\entity\SoloMode;
 use hachkingtohach1\SkyWars\entity\DoubleMode;
 use hachkingtohach1\SkyWars\entity\RankedMode;
-use hachkingtohach1\SkyWars\entity\MegaMode;
+use hachkingtohach1\SkyWars\entity\LaboratoryMode;
 use hachkingtohach1\SkyWars\entity\SoulWell;
 use hachkingtohach1\SkyWars\entity\QuestMaster;
 use hachkingtohach1\SkyWars\form\Form;
