@@ -680,20 +680,20 @@ class SkyWars extends PluginBase{
 				}
 			}
 			$sender->teleport($this->getServer()->getWorldManager()->getDefaultWorld()->getSpawnLocation());
-			$sender->sendMessage(TextFormat::GRAY."Sending you to the lobby...");
+			$sender->sendMessage(TextFormat::GRAY."§l§6» §r§aSending you to the lobby...");
 			return true;
 		}
 		if($command->getName() == "npc"){
 			if(!$sender instanceof Player){
-				$sender->sendMessage(self::PREFIX.TextFormat::RED."This command is for in-game only!");
+				$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThis command is for in-game only!");
 				return false;
 			}
 			if(!$this->getServer()->isOp($sender->getName())){
-				$sender->sendMessage(self::PREFIX.TextFormat::RED."This command is for staff only!");
+				$sender->sendMessage(self::PREFIX.TextFormat::RED."§l§6» §r§cThis command is for staff only!");
 				return false;
 			}
 			if(!isset($args[0])){
-				$sender->sendMessage(self::PREFIX.TextFormat::GREEN."/npc <solo,double,ranked,mega,laboratory,triple,topkills,topdeaths,topwins,toplevel,soulwell,questmaster,clearalltop,clearallnpc,clearallsoulwell>");
+				$sender->sendMessage(self::PREFIX.TextFormat::GREEN."§l§6» §r§a/npc <solo,double,ranked,mega,laboratory,triple,topkills,topdeaths,topwins,toplevel,soulwell,questmaster,clearalltop,clearallnpc,clearallsoulwell>");
 				return false;
 			}
 			switch($args[0]){
@@ -754,7 +754,7 @@ class SkyWars extends PluginBase{
 			                }
 					    }
 					}
-					$sender->sendMessage(self::PREFIX.TextFormat::GREEN."All entities has cleared!");
+					$sender->sendMessage(self::PREFIX.TextFormat::GREEN."§l§6» §r§aAll entities have cleared!");
 				    break;
 				case "clearallnpc":
 				    foreach($this->getServer()->getWorldManager()->getWorlds() as $world){
@@ -771,7 +771,7 @@ class SkyWars extends PluginBase{
 			                }
 					    }
 					}
-					$sender->sendMessage(self::PREFIX.TextFormat::GREEN."All entities has cleared!");
+					$sender->sendMessage(self::PREFIX.TextFormat::GREEN."§l§6» §r§aAll entities have cleared!");
 				    break;
 				case "clearallsoulwell":
 				    foreach($this->getServer()->getWorldManager()->getWorlds() as $world){
