@@ -427,6 +427,10 @@ class EventListener implements Listener{
 			$event->cancel();
 			Form::getMenuMegaMode($damager);
 		}
+		if($entity instanceof LaboratoryMode and $damager instanceof Player){
+			$event->cancel();
+			Form::getMenuLaboratoryMode($damager);
+		}
 		if($entity instanceof SoulWell and $damager instanceof Player){
 			$event->cancel();
 			Form::getSoulWellForm($damager);
