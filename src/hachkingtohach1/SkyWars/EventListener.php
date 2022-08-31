@@ -779,9 +779,9 @@ class EventListener implements Listener{
 			}
 			foreach($data as $member){
 				if($this->plugin->isOwnerParty($player)){
-				    $member->sendMessage(TextFormat::DARK_PURPLE."[Party] ".TextFormat::GREEN."<Master> ".$player->getName().": ".$event->getMessage());
+				    $member->sendMessage(TextFormat::DARK_PURPLE."§8[§4S§cW§5Party§8] ".TextFormat::GREEN."§8[§dParty§cOwner§8] ".$player->getName()." §l§8»§r ".$event->getMessage());
 				}else{
-					$member->sendMessage(TextFormat::DARK_PURPLE."[Party] ".$player->getName()." > ".$event->getMessage());
+					$member->sendMessage(TextFormat::DARK_PURPLE."§8[§4S§cW§5Party§8] ".$player->getName()." §l§8»§r ".$event->getMessage());
 				}
 			}
 			$event->cancel();
