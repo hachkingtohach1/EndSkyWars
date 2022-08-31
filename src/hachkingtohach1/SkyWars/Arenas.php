@@ -512,7 +512,7 @@ class Arenas{
 	    $player->getInventory()->setItem(8, $this->getItem(355, 14, 1)->setCustomName(self::LEAVE_GAME_ITEM));
 		
 	    if($this->getMode() == self::MODE_LABORATORY){
-                $player->getInventory()->removeItem(ItemIds::BOW);
+                $player->getInventory()->removeItem(ItemFactory::getInstance()->get(261, 0, 1));
             }
 	}
 	
