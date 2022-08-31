@@ -66,7 +66,7 @@ use hachkingtohach1\SkyWars\utils\Lightning;
 use hachkingtohach1\SkyWars\entity\SoloMode;
 use hachkingtohach1\SkyWars\entity\DoubleMode;
 use hachkingtohach1\SkyWars\entity\RankedMode;
-use hachkingtohach1\SkyWars\entity\MegaMode;
+use hachkingtohach1\SkyWars\entity\LaboratoryMode;
 use hachkingtohach1\SkyWars\entity\SoulWell;
 use hachkingtohach1\SkyWars\entity\QuestMaster;
 use hachkingtohach1\SkyWars\form\Form;
@@ -186,7 +186,7 @@ class EventListener implements Listener{
 				                $randomCoins = rand(100, 150);
 				                Economy::addCoins($subject, $randomCoins);
 				                Economy::addSouls($subject, 1);
-								Ranking::addXp($subject, 2);
+								SkyWars::getInstance()->getDataBase()->addLevels($subject, 1);
 								//update quests
 								Quest::checkQuestPlayer($subject, $dataArenaAttacker->getMaxInTeamCount(), "kill");								
 								$subject->sendTip(TextFormat::GOLD."+".$randomCoins." coins, ".TextFormat::LIGHT_PURPLE."+1 XP, ".TextFormat::AQUA." +1 souls");
@@ -203,6 +203,7 @@ class EventListener implements Listener{
 				Economy::addCoins($attacker, $randomCoins);
 				Economy::addSouls($attacker, 1);
 				Ranking::addXp($attacker, 2);
+				SkyWars::getInstance()->getDataBase()->addLevels($subject, 1);
 				//update quests
 				Quest::checkQuestPlayer($attacker, $dataArenaAttacker->getMaxInTeamCount(), "kill");
 				$attacker->sendTip(TextFormat::GOLD."+".$randomCoins." coins, ".TextFormat::LIGHT_PURPLE."+1 XP, ".TextFormat::AQUA." +1 souls");
@@ -215,6 +216,7 @@ class EventListener implements Listener{
 				Economy::addCoins($attacker, $randomCoins);
 				Economy::addSouls($attacker, 1);
 				Ranking::addXp($attacker, 2);
+				SkyWars::getInstance()->getDataBase()->addLevels($subject, 1);
 				//update quests
 				Quest::checkQuestPlayer($attacker, $dataArenaAttacker->getMaxInTeamCount(), "kill");
 				$attacker->sendTip(TextFormat::GOLD."+".$randomCoins." coins, ".TextFormat::LIGHT_PURPLE."+1 XP, ".TextFormat::AQUA." +1 souls");
@@ -698,7 +700,7 @@ class EventListener implements Listener{
 	public function onPlayerItemUse(PlayerItemUseEvent $event) :void{
 		$player = $event->getPlayer();
 		$item = $event->getItem();
-		if($item->getnamedTag()->getTag("Corruptedpearl", IntTag::class) != null){
+		if($item->getNamedTag()->getTag("Corruptedpearl", IntTag::class) != null){
 			$instance = new EffectInstance(StringToEffectParser::getInstance()->parse("slowness"), 200, 0);
 		    $player->getEffects()->add($instance);
 		}
