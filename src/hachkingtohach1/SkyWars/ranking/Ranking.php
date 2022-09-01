@@ -26,6 +26,7 @@ namespace hachkingtohach1\SkyWars\ranking;
 
 use pocketmine\utils\TextFormat;
 use pocketmine\player\Player;
+use pocketmine\world\sound\XpLevelUpSound;
 use hachkingtohach1\SkyWars\SkyWars;
 use hachkingtohach1\SkyWars\economy\Economy;
 
