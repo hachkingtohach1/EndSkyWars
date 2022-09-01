@@ -14,3 +14,7 @@ lastMonth: 0
 level-required-for-rating: 5
 builder-mode: false
 name-server: "SkyWars > Join now!"
+Banned-Commands:
+- "hub"
+- "lobby"
+Banned-Command-Message: "You are not allowed to use this command in SkyWars!"
