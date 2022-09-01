@@ -249,8 +249,9 @@ class EventListener implements Listener{
 		if(count($dataB) <= 1){
 			$this->plugin->getDataBase()->setWeeklyQuest($player, implode("|", $weeklyQuests));
 		}
-		//send message when player join
-	    $event->setJoinMessage(TextFormat::GREEN."[+] ".TextFormat::GRAY.$player->getName());
+		if($this->plugin->getConfig()->get("Clear-Xp") == true){
+                    Ranking::setXp($player, 0);
+                }
 	}
 	
 	/**
@@ -274,6 +275,27 @@ class EventListener implements Listener{
 		//remove death message from pocketmine
 		$event->setQuitMessage("");
 	}
+	
+    /**
+     * @param PlayerCommandPreprocessEvent $event
+     */
+    public function onCommandPreprocess(PlayerCommandPreprocessEvent $event)
+    {
+        $msg = $event->getMessage();
+        $player = $event->getPlayer();
+	$dataPlayer = $this->getDataPlayer($player);
+
+        $inGame = $dataPlayer->isInGame();
+
+        if (!$inGame) return;
+
+        $cmd = explode(" ", $msg)[0];
+
+        if (in_array($cmd, $this->plugin->getConfig()->get("Banned-Commands"))) {
+            $player->sendMessage($this->plugin->getConfig()->get("Banned-Command-Message"));
+            $event->cancel();
+        }
+    }
 	
 	/**
 	 * Calls when player cause damage
