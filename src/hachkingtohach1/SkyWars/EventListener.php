@@ -60,6 +60,7 @@ use pocketmine\world\sound\ExplodeSound;
 use pocketmine\world\sound\BlazeShootSound;
 use pocketmine\world\particle\BlockBreakParticle;
 use pocketmine\world\particle\HugeExplodeParticle;
+use pocketmine\event\player\PlayerCommandPreprocessEvent;
 use hachkingtohach1\SkyWars\player\SWPlayer;
 use hachkingtohach1\SkyWars\math\Vector3;
 use hachkingtohach1\SkyWars\utils\Lightning;
