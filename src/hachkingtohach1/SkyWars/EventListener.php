@@ -45,6 +45,7 @@ use pocketmine\event\inventory\InventoryOpenEvent;
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\block\inventory\ChestInventory;
+use pocketmine\world\sound\XpLevelUpSound;
 use pocketmine\block\Chest;
 use pocketmine\block\BlockLegacyIds;
 use pocketmine\block\BlockFactory;
@@ -54,7 +55,6 @@ use pocketmine\entity\projectile\EnderPearl;
 use pocketmine\entity\effect\EffectInstance;
 use pocketmine\entity\effect\StringToEffectParser;
 use pocketmine\world\sound\AnvilFallSound;
-use pocketmine\world\sound\XpLevelUpSound;
 use pocketmine\world\sound\BlockBreakSound;
 use pocketmine\world\sound\ExplodeSound;
 use pocketmine\world\sound\BlazeShootSound;
@@ -191,6 +191,7 @@ class EventListener implements Listener{
 				                Economy::addSouls($subject, 1);
 								SkyWars::getInstance()->getDataBase()->addLevels($subject, 1);
 							        $subject->sendMessage("§l§6» §bLEVEL UP! §r§bYou are now §4Sky§cWars §blevel §e{$nextLevel}§b!");
+							$subject->getWorld()->addSound($subject->getLocation()->asVector3(), new XpLevelUpSound(10), [$subject]);
 								//update quests
 								Quest::checkQuestPlayer($subject, $dataArenaAttacker->getMaxInTeamCount(), "kill");								
 								$subject->sendTip(TextFormat::GOLD."+".$randomCoins." coins, ".TextFormat::LIGHT_PURPLE."+1 XP, ".TextFormat::AQUA." +1 souls");
@@ -211,6 +212,7 @@ class EventListener implements Listener{
 				Ranking::addXp($attacker, 2);
 				SkyWars::getInstance()->getDataBase()->addLevels($attacker, 1);
 				$attacker->sendMessage("§l§6» §bLEVEL UP! §r§bYou are now §4Sky§cWars §blevel §e{$nextLevel}§b!");
+				$attacker->getWorld()->addSound($attacker->getLocation()->asVector3(), new XpLevelUpSound(10), [$attacker]);
 				//update quests
 				Quest::checkQuestPlayer($attacker, $dataArenaAttacker->getMaxInTeamCount(), "kill");
 				$attacker->sendTip(TextFormat::GOLD."+".$randomCoins." coins, ".TextFormat::LIGHT_PURPLE."+1 XP, ".TextFormat::AQUA." +1 souls");
@@ -227,6 +229,7 @@ class EventListener implements Listener{
 				Ranking::addXp($attacker, 2);
 				SkyWars::getInstance()->getDataBase()->addLevels($attacker, 1);
 				$attacker->sendMessage("§l§6» §bLEVEL UP! §r§bYou are now §4Sky§cWars §blevel §e{$nextLevel}§b!");
+				$attacker->getWorld()->addSound($attacker->getLocation()->asVector3(), new XpLevelUpSound(10), [$attacker]);
 				//update quests
 				Quest::checkQuestPlayer($attacker, $dataArenaAttacker->getMaxInTeamCount(), "kill");
 				$attacker->sendTip(TextFormat::GOLD."+".$randomCoins." coins, ".TextFormat::LIGHT_PURPLE."+1 XP, ".TextFormat::AQUA." +1 souls");
