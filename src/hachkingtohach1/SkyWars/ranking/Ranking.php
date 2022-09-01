@@ -209,31 +209,76 @@ class Ranking{
 	            ];
 		}
 		if($level >= 50){
-		    $result = self::addLevel($player, 1);
+	            $result = [
+		       self::addLevel($player, 1),
+		       self::setXp($player, 0),
+		       $player->sendMessage("§l§6» §bLEVEL UP! §r§bYou are now §4Sky§cWars §blevel §e{$nextLevel}§b!"),
+		       $player->getWorld()->addSound($player->getLocation()->asVector3(), new XpLevelUpSound(10), [$player])
+	            ];
 		}
 		if($level >= 75){
-		    $result = self::addLevel($player, 1);
+	            $result = [
+		       self::addLevel($player, 1),
+		       self::setXp($player, 0),
+		       $player->sendMessage("§l§6» §bLEVEL UP! §r§bYou are now §4Sky§cWars §blevel §e{$nextLevel}§b!"),
+		       $player->getWorld()->addSound($player->getLocation()->asVector3(), new XpLevelUpSound(10), [$player])
+	            ];
 		}
 		if($level >= 100){
-		    $result = self::addLevel($player, 1);
+	            $result = [
+		       self::addLevel($player, 1),
+		       self::setXp($player, 0),
+		       $player->sendMessage("§l§6» §bLEVEL UP! §r§bYou are now §4Sky§cWars §blevel §e{$nextLevel}§b!"),
+		       $player->getWorld()->addSound($player->getLocation()->asVector3(), new XpLevelUpSound(10), [$player])
+	            ];
 		}
 		if($level >= 125){
-		    $result = self::addLevel($player, 1);
+	            $result = [
+		       self::addLevel($player, 1),
+		       self::setXp($player, 0),
+		       $player->sendMessage("§l§6» §bLEVEL UP! §r§bYou are now §4Sky§cWars §blevel §e{$nextLevel}§b!"),
+		       $player->getWorld()->addSound($player->getLocation()->asVector3(), new XpLevelUpSound(10), [$player])
+	            ];
 		}		
 		if($level >= 150){
-		    $result = self::addLevel($player, 1);
+	            $result = [
+		       self::addLevel($player, 1),
+		       self::setXp($player, 0),
+		       $player->sendMessage("§l§6» §bLEVEL UP! §r§bYou are now §4Sky§cWars §blevel §e{$nextLevel}§b!"),
+		       $player->getWorld()->addSound($player->getLocation()->asVector3(), new XpLevelUpSound(10), [$player])
+	            ];
 		}
 		if($level >= 175){
-		   $result = self::addLevel($player, 1);
+	            $result = [
+		       self::addLevel($player, 1),
+		       self::setXp($player, 0),
+		       $player->sendMessage("§l§6» §bLEVEL UP! §r§bYou are now §4Sky§cWars §blevel §e{$nextLevel}§b!"),
+		       $player->getWorld()->addSound($player->getLocation()->asVector3(), new XpLevelUpSound(10), [$player])
+	            ];
 		}
 		if($level >= 200){
-		    $result = self::addLevel($player, 1);
+	            $result = [
+		       self::addLevel($player, 1),
+		       self::setXp($player, 0),
+		       $player->sendMessage("§l§6» §bLEVEL UP! §r§bYou are now §4Sky§cWars §blevel §e{$nextLevel}§b!"),
+		       $player->getWorld()->addSound($player->getLocation()->asVector3(), new XpLevelUpSound(10), [$player])
+	            ];
 	        }
                 if($level >= 225){
-                    $result = self::addLevel($player, 1);
+	            $result = [
+		       self::addLevel($player, 1),
+		       self::setXp($player, 0),
+		       $player->sendMessage("§l§6» §bLEVEL UP! §r§bYou are now §4Sky§cWars §blevel §e{$nextLevel}§b!"),
+		       $player->getWorld()->addSound($player->getLocation()->asVector3(), new XpLevelUpSound(10), [$player])
+	            ];
                 }
                 if($level >= 250){
-                    $result = self::addLevel($player, 1);
+	            $result = [
+		       self::addLevel($player, 1),
+		       self::setXp($player, 0),
+		       $player->sendMessage("§l§6» §bLEVEL UP! §r§bYou are now §4Sky§cWars §blevel §e{$nextLevel}§b!"),
+		       $player->getWorld()->addSound($player->getLocation()->asVector3(), new XpLevelUpSound(10), [$player])
+	            ];
                 }		
 		return $result;
 	}
@@ -244,19 +289,14 @@ class Ranking{
      * @return bool
      */
 	public static function updateXpPlayer(Player $player) :bool{		
-		$nextXp = self::getNextXp($player);
+		$nextXp = self::searchNextXp($player);
 		if(self::getXp($player) >= $nextXp){
 			$levelNow = self::getLevel($player);
 			$nextLevel = self::getLevel($player) + 1;
-			$coins = (1000 * (self::getLevel($player) + 1));
 			$coinsAdd = number_format($coins);
-			$player->sendMessage("§l§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
-		    $player->sendMessage("§l§dSkyWars Level Up! §b{$levelNow}⚔ §7➨ §2{$nextLevel}⚔");
-			$player->sendMessage("§8 +§6{$coinsAdd} §7SkyWars Coins");
-			$player->sendMessage("§l§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
-			self::setLevel($player, $nextLevel);
+		        $player->sendMessage("§l§6» §bLEVEL UP! §r§bYou are now §4Sky§cWars §blevel §e{$nextLevel}§b!");
+			self::addLevel($player, 0);
 			self::setXp($player, 0);
-			Economy::addCoins($player, $coins);
 			$player->getWorld()->addSound($player->getLocation()->asVector3(), new XpLevelUpSound(10), [$player]);
 			return true;
 		}
