@@ -185,9 +185,12 @@ class EventListener implements Listener{
 								$dataArenaAttacker->updateAssistsCounter($attacker);
 								//update coins, souls, xp for attacker
 				                $randomCoins = rand(100, 150);
+						$currentLevel = Ranking::getLevel();
+				                $nextLevel = Ranking::getLevel($player) + 1;
 				                Economy::addCoins($subject, $randomCoins);
 				                Economy::addSouls($subject, 1);
 								SkyWars::getInstance()->getDataBase()->addLevels($subject, 1);
+							        $subject->sendMessage("§l§6» §bLEVEL UP! §r§bYou are now §4Sky§cWars §blevel §e{$nextLevel}§b!");
 								//update quests
 								Quest::checkQuestPlayer($subject, $dataArenaAttacker->getMaxInTeamCount(), "kill");								
 								$subject->sendTip(TextFormat::GOLD."+".$randomCoins." coins, ".TextFormat::LIGHT_PURPLE."+1 XP, ".TextFormat::AQUA." +1 souls");
@@ -201,10 +204,13 @@ class EventListener implements Listener{
                 $dataArenaAttacker->updateKillsCounter($attacker);				
 				//update coins, souls, xp for attacker
 				$randomCoins = rand(100, 150);
+				$currentLevel = Ranking::getLevel();
+				$nextLevel = Ranking::getLevel($player) + 1;
 				Economy::addCoins($attacker, $randomCoins);
 				Economy::addSouls($attacker, 1);
 				Ranking::addXp($attacker, 2);
 				SkyWars::getInstance()->getDataBase()->addLevels($attacker, 1);
+				$attacker->sendMessage("§l§6» §bLEVEL UP! §r§bYou are now §4Sky§cWars §blevel §e{$nextLevel}§b!");
 				//update quests
 				Quest::checkQuestPlayer($attacker, $dataArenaAttacker->getMaxInTeamCount(), "kill");
 				$attacker->sendTip(TextFormat::GOLD."+".$randomCoins." coins, ".TextFormat::LIGHT_PURPLE."+1 XP, ".TextFormat::AQUA." +1 souls");
@@ -214,10 +220,13 @@ class EventListener implements Listener{
 			    $dataArenaAttacker->updateKillsCounter($attacker);
 				//update coins, souls, xp for attacker
 				$randomCoins = rand(100, 150);
+				$currentLevel = Ranking::getLevel();
+				$nextLevel = Ranking::getLevel($player) + 1;
 				Economy::addCoins($attacker, $randomCoins);
 				Economy::addSouls($attacker, 1);
 				Ranking::addXp($attacker, 2);
 				SkyWars::getInstance()->getDataBase()->addLevels($attacker, 1);
+				$attacker->sendMessage("§l§6» §bLEVEL UP! §r§bYou are now §4Sky§cWars §blevel §e{$nextLevel}§b!");
 				//update quests
 				Quest::checkQuestPlayer($attacker, $dataArenaAttacker->getMaxInTeamCount(), "kill");
 				$attacker->sendTip(TextFormat::GOLD."+".$randomCoins." coins, ".TextFormat::LIGHT_PURPLE."+1 XP, ".TextFormat::AQUA." +1 souls");
