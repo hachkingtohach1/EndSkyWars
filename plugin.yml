@@ -38,15 +38,15 @@
         },
         "skywars.kit":{
             "description": "Permission to use the SkyWars Kit.",
-            "default": OP
+            "default": true
         },
         "skywars.trails":{
             "description": "Permission to use the SkyWars Kit.",
-            "default": OP
+            "default": true
         },
         "skywars.cages":{
             "description": "Permission to use the SkyWars Kit.",
-            "default": OP
+            "default": true
         },        
         "menu.command":{
             "description": "Permission to use the SkyWars command.",
