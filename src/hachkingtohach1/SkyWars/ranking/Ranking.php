@@ -205,8 +205,8 @@ class Ranking{
 		       self::addLevel($player, 1),
 		       self::setXp($player, 0),
 		       $player->sendMessage("§l§6» §bLEVEL UP! §r§bYou are now §4Sky§cWars §blevel §e{$nextLevel}§b!"),
-		       $player->getWorld()->addSound($player->getLocation()->asVector3(), new XpLevelUpSound(10), [$player]),
-	            ],
+		       $player->getWorld()->addSound($player->getLocation()->asVector3(), new XpLevelUpSound(10), [$player])
+	            ];
 		}
 		if($level >= 50){
 		    $result = self::addLevel($player, 1);
