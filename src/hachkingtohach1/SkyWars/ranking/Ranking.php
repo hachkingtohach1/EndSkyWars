@@ -115,7 +115,7 @@ class Ranking{
      * @return int
      */
 	public static function getNextXp(Player $player) :int{
-		$nextXp = (int)(self::BASIC_XP * (self::getLevel($player) + 1));
+		$nextXp = (int)(self::BASIC_XP * (self::getXp($player) + 25));
 		return $nextXp;
 	}
 	
@@ -199,8 +199,14 @@ class Ranking{
 		$result = "";
 		$level = self::getXp($player);
 		$xp = self::getLevel($player);
+		$nextXp = self::getLevel($player) + 1;
 		if($level >= 25){
-	            $result = self::addLevel($player, 1);
+	            $result = [
+		       self::addLevel($player, 1);
+		       self::setXp($player, 0);
+		       $player->sendMessage("§l§6» §bLEVEL UP! §r§bYou are now §4Sky§cWars §blevel §e{$nextLevel}§b!");
+		       $player->getWorld()->addSound($player->getLocation()->asVector3(), new XpLevelUpSound(10), [$player]);    
+	            ],   
 		}
 		if($level >= 50){
 		    $result = self::addLevel($player, 1);
