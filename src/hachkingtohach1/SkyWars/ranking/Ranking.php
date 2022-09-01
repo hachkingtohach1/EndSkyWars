@@ -46,7 +46,7 @@ class Ranking{
      * @param Player $player
      * @return float
      */
-	public static function addLevel(Player $player) :float{
+	public static function addLevel(Player $player, int $amount) :float{
 		return SkyWars::getInstance()->getDataBase()->addLevel($player, $amount);
 	}
 	
